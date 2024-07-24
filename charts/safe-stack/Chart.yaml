@@ -1,7 +1,7 @@
 apiVersion: v2
 name: safe-stack
 version: 0.0.1
-appVersion: "X.Y.Z"
+appVersion: "2024-07-24_001"
 description: A Helm chart to deploy Safe stack
 keywords:
   - safe

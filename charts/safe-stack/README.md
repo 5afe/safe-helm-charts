@@ -2,6 +2,9 @@
 
 [Safe](https://safe.global/) is the leading Web3 Smart-Account infrastructure.
 
+> [!WARNING]  
+> **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
+
 ## Introduction
 
 This chart bootstraps a [safe](https://github.com/safe-global/safe-infrastructure) infrastructure deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
@@ -71,7 +74,7 @@ helm show values safe/safe-stack
 
 | Parameter                                                  | Description                                                                                         | Default                    |
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------|
-| `image.repository`                                         | nextcloud Image name                                                                                | `nextcloud`     
+| `xxxxxx`                                         | xxxx                                                                                | `xxxx`     
 
 
 ## Troubleshooting

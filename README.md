@@ -2,6 +2,10 @@
 
 [Helm](https://helm.sh/) repo for different charts related to Safe which can be installed on Kubernetes
 
+> [!WARNING]  
+> **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
+
+
 ## Prerequisites
 
 - [Kubernetes 1.19+](https://kubernetes.io/)
