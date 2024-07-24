@@ -1,0 +1,17 @@
+apiVersion: v2
+name: safe-stack
+version: 0.0.1
+appVersion: "X.Y.Z"
+description: A Helm chart to deploy Safe stack
+keywords:
+  - safe
+  - stack
+  - web3
+  - aa
+home: https://safe.global
+icon: https://changeme
+sources:
+  - https://changeme
+maintainers:
+  - name: gjeanmart
+    email: greg@safe.global

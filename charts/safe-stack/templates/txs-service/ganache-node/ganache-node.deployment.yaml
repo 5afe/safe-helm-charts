@@ -1,0 +1,38 @@
+{{- if .Values.ganacheNode.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-stack.fullname" . }}-ganache-node
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "safe-stack.fullname" . }}-ganache-node
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-stack.fullname" . }}-ganache-node
+    spec:
+      containers:
+        - name: {{ include "safe-stack.fullname" . }}-ganache-node
+          image: gjeanmart/safe-ganache-node:latest
+          ports:
+            - name: node-rpc
+              containerPort: 8545
+          env:
+            - name: MNEMONIC
+              value: "{{ .Values.ganacheNode.config.mnemonic }}"
+            - name: CHAIN_ID
+              value: "{{ .Values.ganacheNode.config.chainId }}"
+          volumeMounts:
+            - name: ganache-node-claim
+              mountPath: /db
+      volumes:
+        - name: ganache-node-claim
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-ganache-node-claim0
+---
+{{- end }}

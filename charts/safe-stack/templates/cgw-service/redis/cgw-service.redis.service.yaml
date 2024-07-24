@@ -1,0 +1,18 @@
+{{- if and (.Values.cgwService.enabled) (not .Values.cgwService.config.redis.useExisting) }}
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: {{ include "safe-stack.fullname" . }}-cgw-redis
+
+spec:
+  selector:
+    app: {{ include "safe-stack.fullname" . }}-cgw-redis
+  ports:
+    - name: redis
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
+---
+{{- end }}

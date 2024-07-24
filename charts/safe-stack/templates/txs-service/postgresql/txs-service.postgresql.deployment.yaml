@@ -1,0 +1,40 @@
+{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.database.useExisting) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-stack.fullname" . }}-txs-db
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "safe-stack.fullname" . }}-txs-db
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-stack.fullname" . }}-txs-db
+    spec:
+      containers:
+        - name: txs-db
+          image: postgres:14-alpine
+          env:
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.txsService.config.database.password }}
+            - name: POSTGRES_USER
+              value: {{ .Values.txsService.config.database.user }}
+            - name: POSTGRES_DB
+              value: {{ .Values.txsService.config.database.db }}
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: txs-db-claim
+              mountPath: /var/lib/postgresql/data
+              subPath: txs-db-data
+      volumes:
+        - name: txs-db-claim
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-txs-db-claim0
+---
+{{- end }}

@@ -1,0 +1,31 @@
+{{- if and .Values.walletWeb.enabled .Values.walletWeb.ingress.enabled}}
+---
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+  name: {{ include "safe-stack.fullname" . }}-wallet-ingress
+
+  annotations:
+    {{- range $k, $v := .Values.walletWeb.ingress.annotations }}
+    {{ $k }}: {{ $v | quote }}
+    {{ end }}
+
+spec:
+  # notice: ref: https://kubernetes.github.io/ingress-nginx/user-guide/multiple-ingress/
+  ingressClassName: {{ .Values.walletWeb.ingress.ingressClassName }}
+
+  rules:
+    - host: {{ .Values.walletWeb.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "safe-stack.fullname" . }}-wallet
+                port:
+                  number: 443
+---
+{{- end }}

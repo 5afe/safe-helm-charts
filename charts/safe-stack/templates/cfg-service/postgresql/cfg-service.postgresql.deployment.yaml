@@ -1,0 +1,40 @@
+{{- if and (.Values.cfgService.enabled) (not .Values.cfgService.config.database.useExisting) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-stack.fullname" . }}-cfg-db
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "safe-stack.fullname" . }}-cfg-db
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-stack.fullname" . }}-cfg-db
+    spec:
+      containers:
+        - name: cfg-db
+          image: postgres:14-alpine
+          env:
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.cfgService.config.database.password }}
+            - name: POSTGRES_USER
+              value: {{ .Values.cfgService.config.database.user }}
+            - name: POSTGRES_DB
+              value: {{ .Values.cfgService.config.database.db }}
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: cfg-db-claim
+              mountPath: /var/lib/postgresql/data
+              subPath: cfg-db-data
+      volumes:
+        - name: cfg-db-claim
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-cfg-db-claim0
+---
+{{- end }}
