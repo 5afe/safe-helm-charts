@@ -35,16 +35,16 @@ helm install [RELEASE-NAME] safe/safe-stack
 For more information, please checkout the chart level [README.md](./charts/safe-stack/README.md).
 
 ## Support and Contribution
-This helm chart is community maintained, and not supported by Nextcloud GmbH. Please also review the official [NextCloud Code of Conduct](https://nextcloud.com/contribute/code-of-conduct/) and this repo's [contributing doc](./CONTRIBUTING.md) before contributing.
+This helm chart is community maintained, and not supported by Nextcloud GmbH. Please also review the official [Safe Code of Conduct*](https://changeme) and this repo's [contributing doc*](./CONTRIBUTING.md) before contributing.
 
 ### Questions and Discussions
-[GitHub Discussion](https://complete)
+[GitHub Discussion*](https://changeme)
 
 ### Bugs and other Issues
-If you have a bug to report or a feature to request, you can first search the [GitHub Issues](https://complete), and  if you can't find what you're looking for, feel free to open an issue.
+If you have a bug to report or a feature to request, you can first search the [GitHub Issue*](https://changeme), and  if you can't find what you're looking for, feel free to open an issue.
 
 ### Contributing to the Code
-We're always happy to review a pull request :) Please just be sure to check the pull request template to make sure you fufill all the required checks, most importantly the [DCO](https://probot.github.io/apps/dco/).
+We're always happy to review a pull request :) Please just be sure to check the pull request template to make sure you fufill all the required checks, most importantly the [DCO*](https://probot.github.io/apps/dco/).
 
 ## TODO list
 
