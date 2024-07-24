@@ -84,14 +84,17 @@ helm show values safe/safe-stack
 
 ## Development 
 
-### Working with minikube (on MacOS)
+### Developing locally with Minikube (on MacOS)
+
+#### Install and Configure [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download)
 
 ```bash
+brew install minikube
 minikube start
 minikube addons enable ingress
 ```
 
-#### Configure TLS
+#### Configure TLS for your Ingresses
 
 ```bash
 brew install mkcert
@@ -112,6 +115,27 @@ minikube addons disable ingress
 minikube addons enable ingress
 ```
 
+
+#### Install the Chart
+
+```bash
+helm install my-safe-stack .
+
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+my-safe-stack-cfg-db-669fd4fb69-5n7pj          1/1     Running   0          4h21m
+my-safe-stack-cfg-web-798dc55779-w2gqc         2/2     Running   0          65m
+my-safe-stack-cgw-redis-dcf485664-nq8df        1/1     Running   0          4h21m
+my-safe-stack-cgw-web-b6f9d64bf-hlxq6          1/1     Running   0          4h21m
+my-safe-stack-ganache-node-687b5f64c9-sbwht    1/1     Running   0          4h21m
+my-safe-stack-txs-db-7ff8d54fcd-qmvxj          1/1     Running   0          4h21m
+my-safe-stack-txs-rabbitmq-569f559f67-rqtv4    1/1     Running   0          4h21m
+my-safe-stack-txs-redis-58d946c556-5krs4       1/1     Running   0          4h21m
+my-safe-stack-txs-scheduler-65b796f5c6-rqh7r   1/1     Running   0          4h21m
+my-safe-stack-txs-web-669f98475c-blxr7         2/2     Running   0          4h21m
+my-safe-stack-txs-worker-649b65bf65-k29z8      1/1     Running   0          4h21m
+my-safe-stack-wallet-79894d9789-z9sph          1/1     Running   0          4h21m
+```
 
 --- 
 
