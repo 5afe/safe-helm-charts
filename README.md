@@ -51,3 +51,4 @@ We're always happy to review a pull request :) Please just be sure to check the 
 - [ ] Add licence
 - [ ] Fix missing/broken links
 - [ ] Release charts on https://artifacthub.io/
+- [ ] Add badges

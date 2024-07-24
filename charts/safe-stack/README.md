@@ -12,7 +12,7 @@ We also package the following helm charts from Bitnami for you to _optionally_ u
 |------------------------------------------------------------------------------|---------------------------------|
 | [PostgreSQL](https://github.com/bitnami/charts/tree/main/bitnami/postgresql) | For use as a database           |
 | [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis)           | For enabling caching            |
-| [RabbitMq](https://github.com/bitnami/charts/tree/main/bitnami/rabbitmq)     | For use as a message broker     |
+| [RabbitMQ](https://github.com/bitnami/charts/tree/main/bitnami/rabbitmq)     | For use as a message broker     |
 
 ## Prerequisites
 
@@ -76,37 +76,37 @@ helm show values safe/safe-stack
 
 ## Troubleshooting
 
+- 
 
 
-## Getting started 
+## Development 
 
-### Working with minikube (local)
+### Working with minikube (on MacOS)
 
-```
-
-$ minikube start
-$ minikube addons enable ingress
+```bash
+minikube start
+minikube addons enable ingress
 ```
 
 #### Configure TLS
 
-```
-$ brew install mkcert
-$ mkcert -install
-$ mkcert -CAROOT
-$ mkcert -key-file key.pem -cert-file cert.pem minikube.net *.minikube.net
+```bash
+brew install mkcert
+mkcert -install
+mkcert -CAROOT
+mkcert -key-file key.pem -cert-file cert.pem minikube.net *.minikube.net
 
-$ kubectl -n kube-system create secret tls mkcert --key key.pem --cert cert.pem
+kubectl -n kube-system create secret tls mkcert --key key.pem --cert cert.pem
 
-$ vi /etc/hosts
+vi /etc/hosts
 127.0.0.1 txs-service.minikube.net
 127.0.0.1 cgw-service.minikube.net
 127.0.0.1 cfg-service.minikube.net
 127.0.0.1 safe-wallet.minikube.net
 
-$ minikube addons configure ingress
-$ minikube addons disable ingress
-$ minikube addons enable ingress
+minikube addons configure ingress
+minikube addons disable ingress
+minikube addons enable ingress
 ```
 
 
