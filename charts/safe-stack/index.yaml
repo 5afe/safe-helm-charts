@@ -3,11 +3,11 @@ entries:
   safe-stack:
   - apiVersion: v2
     appVersion: 2024-07-24_001
-    created: "2024-07-24T14:43:13.332954+02:00"
+    created: "2024-07-24T14:44:21.28356+02:00"
     description: A Helm chart to deploy Safe stack
-    digest: 1102539a5b919c4aa3c72bb0646e08746ef283670c2dfb2a46b4deeaa7b9c4be
+    digest: 7e73cafa69e1b722a3f5f15732f6c2f0205764810c5fbcb9f9c74618e808ff9f
     home: https://safe.global
-    icon: https://changeme
+    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
     - safe
     - stack
@@ -18,8 +18,8 @@ entries:
       name: gjeanmart
     name: safe-stack
     sources:
-    - https://changeme
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-stack
     urls:
-    - safe-stack-0.0.1.tgz
-    version: 0.0.1
-generated: "2024-07-24T14:43:13.331992+02:00"
+    - safe-stack-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-07-24T14:44:21.281259+02:00"
