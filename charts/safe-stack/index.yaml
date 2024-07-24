@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  safe-stack:
+  - apiVersion: v2
+    appVersion: 2024-07-24_001
+    created: "2024-07-24T14:40:22.43594+02:00"
+    description: A Helm chart to deploy Safe stack
+    digest: 1102539a5b919c4aa3c72bb0646e08746ef283670c2dfb2a46b4deeaa7b9c4be
+    home: https://safe.global
+    icon: https://changeme
+    keywords:
+    - safe
+    - stack
+    - web3
+    - aa
+    maintainers:
+    - email: greg@safe.global
+      name: gjeanmart
+    name: safe-stack
+    sources:
+    - https://changeme
+    urls:
+    - safe-stack-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-07-24T14:40:22.434851+02:00"
