@@ -1,5 +1,7 @@
 # Safe-Stack
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-stack)](https://artifacthub.io/packages/search?repo=safe-stack)
+
 [Safe](https://safe.global/) is the leading Web3 Smart-Account infrastructure.
 
 > [!WARNING]  
@@ -33,7 +35,7 @@ We also package the following helm charts from Bitnami for you to _optionally_ u
 To install the chart with the release name `[RELEASE-NAME]`:
 
 ```bash
-helm repo add safe https://xxxxxxxxxxxxxxxxxxxxx
+helm repo add safe https://5afe.github.io/safe-helm-charts/charts/packages
 helm install [RELEASE-NAME] safe/safe-stack
 ```
 

@@ -17,7 +17,7 @@
 To install the repo just run:
 
 ```bash
-helm repo add safe https://xxxxxxxxxxxxxxxxxxxxx
+helm repo add safe https://5afe.github.io/safe-helm-charts/charts/packages
 helm repo update
 ```
 
@@ -54,5 +54,6 @@ We're always happy to review a pull request :) Please just be sure to check the 
 
 - [ ] Add licence
 - [ ] Fix missing/broken links
-- [ ] Release charts on https://artifacthub.io/
-- [ ] Add badges
+- [X] Release charts on https://artifacthub.io/
+- [X] Add badges
+- [ ] GitHub Action to automate release
