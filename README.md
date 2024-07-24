@@ -1,4 +1,4 @@
- # Safe{Stack} Kubernetes Helm charts
+ # Safe Kubernetes Helm charts
 
 [Helm](https://helm.sh/) repo for different charts related to Safe which can be installed on Kubernetes
 
@@ -26,7 +26,7 @@ helm search repo safe
 
 ## Helm Charts
 
-* **[safe/safe-stack](./charts/safe-stack/)**
+### [safe/safe-stack](./charts/safe-stack/)
 
 ```bash
 helm install [RELEASE-NAME] safe/safe-stack
