@@ -3,11 +3,11 @@ entries:
   safe-client-gateway:
   - apiVersion: v2
     appVersion: v1.51.0
-    created: "2024-07-25T16:12:23.592306+02:00"
+    created: "2024-07-25T17:42:37.311074+02:00"
     description: A Helm chart to deploy safe-client-gateway
-    digest: a6fbd3fb8712b2ba5ff3cf54cdf8b5057da0f3a40bb34e2dd8c5b02991e355d3
+    digest: 6f6085507e862cec3f04c10ddbb3d0100c71939bf9cf70079f262daaea147416
     home: https://safe.global
-    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
     - safe
     - stack
@@ -27,11 +27,11 @@ entries:
   safe-config-service:
   - apiVersion: v2
     appVersion: v2.83.0
-    created: "2024-07-25T16:12:23.592684+02:00"
+    created: "2024-07-25T17:42:37.311673+02:00"
     description: A Helm chart to deploy safe-config-service
-    digest: b379c7874bd028da2ca910ea1d1156feee82975e20380abaa1d9f22eb089e741
+    digest: 0d11d913ce918cc7f5b31be7cf5c55a7acf569403cd1c79cf8c2f47ee28d46ed
     home: https://safe.global
-    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
     - safe
     - stack
@@ -51,7 +51,7 @@ entries:
   safe-stack:
   - apiVersion: v2
     appVersion: 2024-07-24_001
-    created: "2024-07-25T16:12:23.594476+02:00"
+    created: "2024-07-25T17:42:37.314395+02:00"
     dependencies:
     - condition: safe-transaction-service.enabled
       name: safe-transaction-service
@@ -71,9 +71,9 @@ entries:
       version: 0.1.0
     description: A Helm chart to deploy the full Safe{Stack} inclusing txs-service,
       cfg-service, cgw-service and wallet-web
-    digest: 7829086410cad2fa211a6c9eb78ed608ce3e06dc7217edd99f8002350833126a
+    digest: c34fa838aa3c8ee53eef0efc7753b7a8734046ae6ac2d99b2e6ad7d321b71f8d
     home: https://safe.global
-    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
     - safe
     - stack
@@ -93,11 +93,11 @@ entries:
   safe-transaction-service:
   - apiVersion: v2
     appVersion: v5.5.0
-    created: "2024-07-25T16:12:23.594944+02:00"
+    created: "2024-07-25T17:42:37.315085+02:00"
     description: A Helm chart to deploy safe-transaction-service
-    digest: fb2388e168b09db259a07ec0d1e4649b6f3ac0785321fce1a71d52e363e5f5b1
+    digest: dcac7140a848e140c288d4d38660d5c57bb79561c21f383c0d082c0619c6a321
     home: https://safe.global
-    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
     - safe
     - stack
@@ -117,11 +117,11 @@ entries:
   safe-wallet-web:
   - apiVersion: v2
     appVersion: v1.39.2
-    created: "2024-07-25T16:12:23.595193+02:00"
+    created: "2024-07-25T17:42:37.315499+02:00"
     description: A Helm chart to deploy safe-wallet-web
-    digest: 7036987b648350b4d498a09d707dc13257876de2156e9e1286691de47b22d0d2
+    digest: e294a9613d5f02ba47ccb3c6f2f3e0f7c70bd813cfd9f9f9d556602eaf23c9f2
     home: https://safe.global
-    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
     - safe
     - stack
@@ -138,4 +138,4 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-25T16:12:23.591864+02:00"
+generated: "2024-07-25T17:42:37.310343+02:00"
