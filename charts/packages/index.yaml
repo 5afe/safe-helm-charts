@@ -3,9 +3,9 @@ entries:
   safe-client-gateway:
   - apiVersion: v2
     appVersion: v1.51.0
-    created: "2024-07-25T14:51:19.562163+02:00"
+    created: "2024-07-25T16:12:23.592306+02:00"
     description: A Helm chart to deploy safe-client-gateway
-    digest: ffe1a8565654bea55024a4a4b891885c41675b418700abfa7e9c071095bcd1bb
+    digest: a6fbd3fb8712b2ba5ff3cf54cdf8b5057da0f3a40bb34e2dd8c5b02991e355d3
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -27,9 +27,9 @@ entries:
   safe-config-service:
   - apiVersion: v2
     appVersion: v2.83.0
-    created: "2024-07-25T14:51:19.562549+02:00"
+    created: "2024-07-25T16:12:23.592684+02:00"
     description: A Helm chart to deploy safe-config-service
-    digest: 5763377d9382f4a2429fb46f18b523c8e08eb5ea61e3998c29088220ec19cfa5
+    digest: b379c7874bd028da2ca910ea1d1156feee82975e20380abaa1d9f22eb089e741
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -51,7 +51,7 @@ entries:
   safe-stack:
   - apiVersion: v2
     appVersion: 2024-07-24_001
-    created: "2024-07-25T14:51:19.56542+02:00"
+    created: "2024-07-25T16:12:23.594476+02:00"
     dependencies:
     - condition: safe-transaction-service.enabled
       name: safe-transaction-service
@@ -71,7 +71,7 @@ entries:
       version: 0.1.0
     description: A Helm chart to deploy the full Safe{Stack} inclusing txs-service,
       cfg-service, cgw-service and wallet-web
-    digest: 1ae330e6082e0d50819fa6affb87fcb64dcf3fccd631372efff145390d47708f
+    digest: 7829086410cad2fa211a6c9eb78ed608ce3e06dc7217edd99f8002350833126a
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -93,9 +93,9 @@ entries:
   safe-transaction-service:
   - apiVersion: v2
     appVersion: v5.5.0
-    created: "2024-07-25T14:51:19.565979+02:00"
+    created: "2024-07-25T16:12:23.594944+02:00"
     description: A Helm chart to deploy safe-transaction-service
-    digest: 649d6e4267dc879a51f20aa16a5b98dddf81170dc302fe50b9b522bdb190748f
+    digest: fb2388e168b09db259a07ec0d1e4649b6f3ac0785321fce1a71d52e363e5f5b1
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -117,9 +117,9 @@ entries:
   safe-wallet-web:
   - apiVersion: v2
     appVersion: v1.39.2
-    created: "2024-07-25T14:51:19.56623+02:00"
+    created: "2024-07-25T16:12:23.595193+02:00"
     description: A Helm chart to deploy safe-wallet-web
-    digest: 838b04e928f30c13bd131cc8825ac0346903949959b71690445dd3f5ab49f1ca
+    digest: 7036987b648350b4d498a09d707dc13257876de2156e9e1286691de47b22d0d2
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -138,4 +138,4 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-25T14:51:19.561678+02:00"
+generated: "2024-07-25T16:12:23.591864+02:00"
