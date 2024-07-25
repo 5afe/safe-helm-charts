@@ -1,11 +1,9 @@
 # Safe-Transaction-Service
 
-> [!WARNING]  
-> **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
-
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-transaction-service)](https://artifacthub.io/packages/search?repo=safe-transaction-service)
 
-[Safe](https://safe.global/) is the leading Web3 Smart-Account infrastructure.
+> [!WARNING]  
+> **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
 
 ## Introduction
 
@@ -24,10 +22,10 @@ We also package the following helm charts from Bitnami for you to _optionally_ u
 - [Kubernetes 1.19+](https://kubernetes.io/)
 - Persistent Volume provisioner support in the underlying infrastructure
 - [Helm 3+](https://helm.sh). Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
-- PostgreSQL v14
-- Redis
-- RabbitMQ 
-- Ethereum node
+- [Ethereum Node JSON-RPC Endpoint](https://ethereum.org/en/developers/docs/apis/json-rpc/)
+- PostgreSQL v14 _(optional)_
+- Redis _(optional)_
+- RabbitMQ _(optional)_
 
 
 ## Installing the Chart
@@ -36,7 +34,8 @@ To install the chart with the release name `[RELEASE-NAME]`:
 
 ```bash
 helm repo add safe https://5afe.github.io/safe-helm-charts/charts/packages
-helm install [RELEASE-NAME] safe/safe-transaction-service
+helm install [RELEASE-NAME] safe/safe-transaction-service \
+      --set config.node.url=http://rpc-endpoint 
 ```
 
 The command deploys safe-transaction-service on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -140,6 +139,8 @@ helm show values safe/safe-transaction-service
 | ganacheNode.ingress.host                    | Node ingress host                                                     | node.minikube.net                                                                                                |
 | ganacheNode.ingress.annotations             | Node ingress annotation                                               | {}                                                                                                               |
 |                                             |                                                                       |                                                                                                                  |
+
+---
 
 ## Troubleshooting
 
