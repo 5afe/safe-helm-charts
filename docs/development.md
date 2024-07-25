@@ -1,6 +1,3 @@
-
-
-
 ## Development 
 
 ### Developing locally with Minikube (on MacOS)
