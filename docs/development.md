@@ -25,6 +25,7 @@ vi /etc/hosts
 127.0.0.1 cgw-service.minikube.net
 127.0.0.1 cfg-service.minikube.net
 127.0.0.1 safe-wallet.minikube.net
+127.0.0.1 node.minikube.net
 
 minikube addons configure ingress
 minikube addons disable ingress
