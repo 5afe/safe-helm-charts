@@ -34,6 +34,7 @@ To install the chart with the release name `[RELEASE-NAME]`:
 
 ```bash
 helm repo add safe https://5afe.github.io/safe-helm-charts/charts/packages
+
 helm install [RELEASE-NAME] safe/safe-transaction-service \
       --set config.node.url=http://rpc-endpoint 
 ```
