@@ -1,0 +1,73 @@
+# Default values for safe-stack.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## Provide a name in place of safe-stack for `app:` labels
+##
+nameOverride: ""
+## Provide a name to substitute for the full names of resources
+##
+fullnameOverride: ""
+## Reference to one or more secrets to be used when pulling images
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+##
+imagePullSecrets: []
+
+##
+## ---------------------------------------------------------------------------
+## CFG-SERVICE CONFIGURATION
+## for more options see xxxxxxx
+##
+cfgService:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: safeglobal/safe-config-service
+    tag: latest
+    pullPolicy: Always
+  extraEnv: []
+  config:
+    debug: true
+    secretKey: "insecure_key_for_dev"
+    csrf:
+      trustedOrigins: "https://safe-wallet.minikube.net"
+    clientGateway:
+      url: "http://safe-client-gateway-web.default.svc.cluster.local"
+      token: "1234567890"
+    database:
+      runMigration: true
+      useExisting: false
+      password: postgres
+      user: postgres
+      db: cfg
+      host: # leave empty unless useExisting=true e.g plsql://
+      port: 5432
+      persistence:
+        storageClass: standard
+        size: 100Mi
+    admin:
+      auth:
+        enabled: true
+        username: root
+        password: root123
+        email: root@example.com
+  web:
+    nodeSelector: {}
+    affinity: {}
+    tolerations: {}
+    securityContext: {}
+    podSecurityContext: {}
+    resources: {}
+      # requests: ## crashing the pod
+      #   memory: "1000Mi"
+      #   cpu: "150m"
+      # limits:
+      #   memory: "2000Mi"
+      #   cpu: "300m"    
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    host: cfg-service.minikube.net
+    annotations: 
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/enable-cors: "false"

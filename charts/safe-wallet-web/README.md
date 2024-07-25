@@ -1,6 +1,6 @@
-# Safe-Stack
+# Safe-Wallet-Web
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-stack)](https://artifacthub.io/packages/search?repo=safe-stack)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-transaction-service)](https://artifacthub.io/packages/search?repo=safe-transaction-service)
 
 [Safe](https://safe.global/) is the leading Web3 Smart-Account infrastructure.
 

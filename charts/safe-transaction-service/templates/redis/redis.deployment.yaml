@@ -1,0 +1,23 @@
+{{- if and .Values.txsService.enabled (not .Values.txsService.config.redis.useExisting)}}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-transaction-service.fullname" . }}-redis
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "safe-transaction-service.fullname" . }}-redis
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-transaction-service.fullname" . }}-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:alpine
+---
+{{- end }}

@@ -1,0 +1,19 @@
+apiVersion: v2
+name: safe-config-service
+version: 0.1.0
+appVersion: "v2.83.0"
+description: A Helm chart to deploy safe-config-service
+keywords:
+  - safe
+  - stack
+  - web3
+  - wallet
+  - smart-account
+home: https://safe.global
+icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+sources:
+  - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-config-service
+  - https://github.com/safe-global/safe-config-service
+maintainers:
+  - name: gjeanmart
+    email: greg@safe.global

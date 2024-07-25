@@ -1,0 +1,66 @@
+{{- if and .Values.cfgService.enabled .Values.cfgService.ingress.enabled }}
+---
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+  name: {{ include "safe-config-service.fullname" . }}-web
+
+  annotations:
+    {{- range $k, $v := .Values.cfgService.ingress.annotations }}
+    {{ $k }}: {{ $v | quote }}
+    {{ end }}
+
+spec:
+  # notice: ref: https://kubernetes.github.io/ingress-nginx/user-guide/multiple-ingress/
+  ingressClassName: {{ .Values.cfgService.ingress.ingressClassName }}
+
+  rules:
+    - host: {{ .Values.cfgService.ingress.host }}
+      http:
+        paths:
+        - path: /
+          pathType: 'Exact'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+        - path: /api
+          pathType: 'Prefix'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+        - path: /static
+          pathType: 'Prefix'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+        - path: /media
+          pathType: 'Prefix'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+        - path: /check
+          pathType: 'Prefix'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+        - path: /admin
+          pathType: 'Prefix'
+          backend:
+            service:
+              name: {{ include "safe-config-service.fullname" . }}-web
+              port:
+                number: 80
+---
+{{- end }}

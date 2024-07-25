@@ -1,0 +1,35 @@
+{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.rabbitmq.useExisting) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-transaction-service.fullname" . }}-rabbitmq
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  {{ include "safe-transaction-service.fullname" . }}-rabbitmq
+  template:
+    metadata:
+      labels:
+        app:  {{ include "safe-transaction-service.fullname" . }}-rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.11.26-management
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: {{ .Values.txsService.config.rabbitmq.user }}
+            - name: RABBITMQ_DEFAULT_PASS
+              value: {{ .Values.txsService.config.rabbitmq.password }}
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 15672
+            - name: amqp
+              protocol: TCP
+              containerPort: 5672
+---
+{{- end }}

@@ -1,0 +1,1 @@
+Configure your safe-config-service in https://{{ .Values.cfgService.ingress.host }}/admin

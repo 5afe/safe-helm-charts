@@ -52,8 +52,7 @@ We're always happy to review a pull request :) Please just be sure to check the 
 
 ## TODO list
 
-- [ ] Add licence
-- [ ] Fix missing/broken links
-- [X] Release charts on https://artifacthub.io/
-- [X] Add badges
+- [ ] Split all components into a separate charts
 - [ ] GitHub Action to automate release
+- [ ] Fix README (missing/broken links)
+- [ ] Add licence and code-of-conduct

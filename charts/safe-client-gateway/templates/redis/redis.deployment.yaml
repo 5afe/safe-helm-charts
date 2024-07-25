@@ -1,0 +1,23 @@
+{{- if and (.Values.cgwService.enabled) (not .Values.cgwService.config.redis.useExisting) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-client-gateway.fullname" . }}-redis
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "safe-client-gateway.fullname" . }}-redis
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-client-gateway.fullname" . }}-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:alpine
+---
+{{- end }}

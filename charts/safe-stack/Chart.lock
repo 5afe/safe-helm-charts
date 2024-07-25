@@ -1,0 +1,15 @@
+dependencies:
+- name: safe-transaction-service
+  repository: file://../safe-transaction-service
+  version: 0.1.0
+- name: safe-config-service
+  repository: file://../safe-config-service
+  version: 0.1.0
+- name: safe-client-gateway
+  repository: file://../safe-client-gateway
+  version: 0.1.0
+- name: safe-wallet-web
+  repository: file://../safe-wallet-web
+  version: 0.1.0
+digest: sha256:a7ac48b00a5c9f3ac3e8ebb68a7cbff3ac9bd0f2d83587c104cc91de56a406d6
+generated: "2024-07-24T22:53:40.875186+02:00"

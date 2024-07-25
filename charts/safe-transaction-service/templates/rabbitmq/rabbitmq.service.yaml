@@ -1,0 +1,18 @@
+{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.rabbitmq.useExisting) }}
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name:  {{ include "safe-transaction-service.fullname" . }}-rabbitmq
+
+spec:
+  selector:
+    app: {{ include "safe-transaction-service.fullname" . }}-rabbitmq
+  ports:
+    - name: rabbitmq
+      protocol: TCP
+      port: 5672
+      targetPort: 5672
+---
+{{- end }}

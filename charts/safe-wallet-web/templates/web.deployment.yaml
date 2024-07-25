@@ -1,0 +1,38 @@
+{{- if .Values.walletWeb.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ include "safe-wallet-web.fullname" . }}
+
+spec:
+  replicas:  {{ .Values.walletWeb.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "safe-wallet-web.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "safe-wallet-web.fullname" . }}
+    spec:
+      containers:
+        - name: wallet
+          image: "{{ .Values.walletWeb.image.repository }}:{{ .Values.walletWeb.image.tag }}"
+          imagePullPolicy: {{ .Values.walletWeb.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: {{ include "safe-wallet-web.fullname" . }}-env
+#          livenessProbe:
+#            exec:
+#              command:
+#                - ----something here----
+#            failureThreshold: 3
+#            initialDelaySeconds: 420 # 7 minutes, yeah the UI takes it's time to start ...
+#            periodSeconds: 60
+#            timeoutSeconds: 30
+---
+{{- end }}

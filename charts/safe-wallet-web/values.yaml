@@ -1,0 +1,41 @@
+# Default values for safe-stack.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## Provide a name in place of safe-stack for `app:` labels
+##
+nameOverride: ""
+## Provide a name to substitute for the full names of resources
+##
+fullnameOverride: ""
+## Reference to one or more secrets to be used when pulling images
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+##
+imagePullSecrets: []
+
+##
+## ---------------------------------------------------------------------------
+## SAFE-WALLET CONFIGURATION
+## for more options see xxxxxxx
+##
+walletWeb:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: gjeanmart/safe-wallet-web #safeglobal/safe-wallet-web
+    tag: force_safe_deployment #latest
+    pullPolicy: Always
+  extraEnv: []
+  config:
+    clientGateway:
+      url: "https://cgw-service.minikube.net"
+    walletConnect:
+      projectId: ""
+      bridge: ""
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    host: safe-wallet.minikube.net
+    annotations:
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/enable-cors: "false"

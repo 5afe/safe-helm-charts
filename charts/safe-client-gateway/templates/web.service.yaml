@@ -1,0 +1,19 @@
+{{- if .Values.cgwService.enabled }}
+---
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: {{ include "safe-client-gateway.fullname" . }}-web
+
+spec:
+  selector:
+    app: {{ include "safe-client-gateway.fullname" . }}-web
+  ports:
+    - name: web
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+---
+{{- end }}
