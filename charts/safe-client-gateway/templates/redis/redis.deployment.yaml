@@ -1,4 +1,4 @@
-{{- if and (.Values.cgwService.enabled) (not .Values.cgwService.config.redis.useExisting) }}
+{{- if not .Values.config.redis.useExisting }}
 ---
 apiVersion: apps/v1
 kind: Deployment

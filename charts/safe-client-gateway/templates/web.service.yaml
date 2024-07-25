@@ -1,4 +1,3 @@
-{{- if .Values.cgwService.enabled }}
 ---
 apiVersion: v1
 
@@ -16,4 +15,3 @@ spec:
       port: 80
       targetPort: 3000
 ---
-{{- end }}

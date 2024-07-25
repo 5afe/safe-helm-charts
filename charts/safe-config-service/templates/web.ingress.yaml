@@ -13,7 +13,6 @@ metadata:
     {{ end }}
 
 spec:
-  # notice: ref: https://kubernetes.github.io/ingress-nginx/user-guide/multiple-ingress/
   ingressClassName: {{ .Values.ingress.ingressClassName }}
 
   rules:

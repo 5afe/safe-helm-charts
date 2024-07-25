@@ -185,47 +185,46 @@ safe-config-service:
 ## for more options see xxxxxxx
 ##
 safe-client-gateway:
-  cgwService:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: safeglobal/safe-client-gateway-nest
+    tag: latest
+    pullPolicy: Always
+  extraEnv: []
+  config:
+    debug: true
+    cfgService:
+      url: "http://safe-stack-safe-config-service-web.default.svc.cluster.local"
+    security:
+      authToken: "1234567890"
+    redis: 
+      useExisting: false
+      host: # leave empty unless useExisting=true
+      port: 6379
+  web:
+    nodeSelector: {}
+    affinity: {}
+    tolerations: {}
+    securityContext: {}
+    podSecurityContext: {}
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "300m"
+      limits:
+        memory: "600Mi"
+        cpu: "600m" 
+  ingress:
     enabled: true
-    replicaCount: 1
-    image:
-      repository: safeglobal/safe-client-gateway-nest
-      tag: latest
-      pullPolicy: Always
-    extraEnv: []
-    config:
-      debug: true
-      cfgService:
-        url: "http://safe-stack-safe-config-service-web.default.svc.cluster.local"
-      security:
-        authToken: "1234567890"
-      redis: 
-        useExisting: false
-        host: # leave empty unless useExisting=true
-        port: 6379
-    web:
-      nodeSelector: {}
-      affinity: {}
-      tolerations: {}
-      securityContext: {}
-      podSecurityContext: {}
-      resources:
-        requests:
-          memory: "300Mi"
-          cpu: "300m"
-        limits:
-          memory: "600Mi"
-          cpu: "600m" 
-    ingress:
-      enabled: true
-      ingressClassName: nginx
-      host: cgw-service.minikube.net
-      annotations: 
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/enable-cors: "true"
-        nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"
-        nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"
-        nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"
+    ingressClassName: nginx
+    host: cgw-service.minikube.net
+    annotations: 
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"
+      nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"
+      nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"
 
 
 ##
