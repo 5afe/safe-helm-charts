@@ -10,7 +10,7 @@ keywords:
   - wallet
   - smart-account
 home: https://safe.global
-icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
 sources:
   - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-transaction-service
   - https://github.com/safe-global/safe-transaction-service
