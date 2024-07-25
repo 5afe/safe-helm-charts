@@ -1,11 +1,35 @@
 apiVersion: v1
 entries:
+  safe-client-gateway:
+  - apiVersion: v2
+    appVersion: v1.51.0
+    created: "2024-07-25T14:51:19.562163+02:00"
+    description: A Helm chart to deploy safe-client-gateway
+    digest: ffe1a8565654bea55024a4a4b891885c41675b418700abfa7e9c071095bcd1bb
+    home: https://safe.global
+    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    keywords:
+    - safe
+    - stack
+    - web3
+    - wallet
+    - smart-account
+    maintainers:
+    - email: greg@safe.global
+      name: gjeanmart
+    name: safe-client-gateway
+    sources:
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-client-gateway
+    - https://github.com/safe-global/safe-client-gateway/
+    urls:
+    - https://5afe.github.io/safe-helm-charts/charts/packages/safe-client-gateway-0.1.0.tgz
+    version: 0.1.0
   safe-config-service:
   - apiVersion: v2
     appVersion: v2.83.0
-    created: "2024-07-25T14:44:53.463764+02:00"
+    created: "2024-07-25T14:51:19.562549+02:00"
     description: A Helm chart to deploy safe-config-service
-    digest: 7bc0b23a9b945c0b22da016ffac7cb39f292d44f18757d6a96a5be15aca08abd
+    digest: 5763377d9382f4a2429fb46f18b523c8e08eb5ea61e3998c29088220ec19cfa5
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -24,12 +48,54 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-config-service-0.1.0.tgz
     version: 0.1.0
+  safe-stack:
+  - apiVersion: v2
+    appVersion: 2024-07-24_001
+    created: "2024-07-25T14:51:19.56542+02:00"
+    dependencies:
+    - condition: safe-transaction-service.enabled
+      name: safe-transaction-service
+      repository: file://../safe-transaction-service
+      version: 0.1.0
+    - condition: safe-config-service.enabled
+      name: safe-config-service
+      repository: file://../safe-config-service
+      version: 0.1.0
+    - condition: safe-client-gateway.enabled
+      name: safe-client-gateway
+      repository: file://../safe-client-gateway
+      version: 0.1.0
+    - condition: safe-wallet-web.enabled
+      name: safe-wallet-web
+      repository: file://../safe-wallet-web
+      version: 0.1.0
+    description: A Helm chart to deploy the full Safe{Stack} inclusing txs-service,
+      cfg-service, cgw-service and wallet-web
+    digest: 1ae330e6082e0d50819fa6affb87fcb64dcf3fccd631372efff145390d47708f
+    home: https://safe.global
+    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    keywords:
+    - safe
+    - stack
+    - web3
+    - wallet
+    - smart-account
+    maintainers:
+    - email: greg@safe.global
+      name: gjeanmart
+    name: safe-stack
+    sources:
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-stack
+    - https://github.com/safe-global/safe-infrastructure
+    urls:
+    - https://5afe.github.io/safe-helm-charts/charts/packages/safe-stack-0.1.0.tgz
+    version: 0.1.0
   safe-transaction-service:
   - apiVersion: v2
     appVersion: v5.5.0
-    created: "2024-07-25T14:44:53.464498+02:00"
+    created: "2024-07-25T14:51:19.565979+02:00"
     description: A Helm chart to deploy safe-transaction-service
-    digest: 0946b0e54cdff52cfc0a3796703c0c5e5568f488d9ee4ae848e2042051afe282
+    digest: 649d6e4267dc879a51f20aa16a5b98dddf81170dc302fe50b9b522bdb190748f
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -51,9 +117,9 @@ entries:
   safe-wallet-web:
   - apiVersion: v2
     appVersion: v1.39.2
-    created: "2024-07-25T14:44:53.464729+02:00"
+    created: "2024-07-25T14:51:19.56623+02:00"
     description: A Helm chart to deploy safe-wallet-web
-    digest: 9f7df09a17401750587cc58c34a9b4df38d8318e91899aa245800df31b29721b
+    digest: 838b04e928f30c13bd131cc8825ac0346903949959b71690445dd3f5ab49f1ca
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
@@ -72,4 +138,4 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-25T14:44:53.463351+02:00"
+generated: "2024-07-25T14:51:19.561678+02:00"
