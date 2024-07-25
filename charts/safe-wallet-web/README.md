@@ -1,6 +1,6 @@
 # Safe-Wallet-Web
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-wallet-web)](https://artifacthub.io/packages/search?repo=safe-wallet-web)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/packages/helm/safe-global/safe-wallet-web)](https://artifacthub.io/packages/helm/safe-global/safe-wallet-web)
 
 > [!WARNING]  
 > **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
