@@ -65,7 +65,7 @@ helm upgrade [RELEASE_NAME] safe/safe-transaction-service
 
 ## Configuration
 
-The following table lists the configurable parameters of the nextcloud chart and their default values.
+The following table lists the configurable parameters of the safe-transaction-service chart and their default values.
 
 See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing). To see all configurable options with detailed comments:
 
