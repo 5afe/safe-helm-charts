@@ -1,1 +1,3 @@
 Configure your safe-transaction-service in https://{{ .Values.ingress.host }}/admin
+- Safe ProxyFactory: https://{{ .Values.ingress.host }}/admin/history/proxyfactory/
+- Safe MasterCopies: https://{{ .Values.ingress.host }}/admin/history/safemastercopy/

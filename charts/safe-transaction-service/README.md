@@ -46,10 +46,10 @@ The command deploys safe-transaction-service on the Kubernetes cluster in the de
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `[RELEASE-NAME]` deployment:
+To uninstall the `[RELEASE-NAME]` deployment:
 
 ```bash
-helm delete [RELEASE-NAME]
+helm uninstall [RELEASE-NAME]
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -73,7 +73,7 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 helm show values safe/safe-transaction-service
 ```
 
-| Parameter                                   | description                                                           | default                                                                                                          |
+| Parameter                                   | Description                                                           | Default                                                                                                          |
 |---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | nameOverride                                | Provide a name in place of safe-transaction-service for `app:` labels | ""                                                                                                               |
 | fullnameOverride                            | Provide a name to substitute for the full names of resources          | ""                                                                                                               |
@@ -84,9 +84,9 @@ helm show values safe/safe-transaction-service
 | image.pullPolicy                            | Image pull policy                                                     | Always                                                                                                           |
 | extraEnv                                    | Specify additional environment variables                              | []                                                                                                               |
 | config.debug                                | Enable debug mode                                                     | true                                                                                                             |
-| config.queues                               |                                                                       | default,indexing,contracts,tokens,notifications,webhooks                                                         |
-| config.secretKey                            |                                                                       | ""                                                                                                               |
-| config.csrf.trustedOrigins                  | Trusted origins should                                                | ""                                                                                                               |
+| config.queues                               | Worker queues to enabled                                              | default,indexing,contracts,tokens,notifications,webhooks                                                         |
+| config.secretKey                            | Django secret key                                                     | ""                                                                                                               |
+| config.csrf.trustedOrigins                  | Trusted origins should refer to safe-wallet-web URL                   | ""                                                                                                               |
 | config.node.url                             | URL of the Ethereum RPC endpoint                                      | ""                                                                                                               |
 | config.node.useGanacheNode                  | Specify if you want to use a testing Ganache node                     | false                                                                                                            |
 | config.database.runMigration                | Run Database migration on startup                                     | true                                                                                                             |
