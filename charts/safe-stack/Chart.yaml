@@ -21,16 +21,16 @@ dependencies:
 - name: safe-transaction-service
   version: "0.1.0"
   repository: "file://../safe-transaction-service"
-  condition: safe-transaction-service.txsService.enabled
+  condition: safe-transaction-service.enabled
 - name: safe-config-service
   version: "0.1.0"
   repository: "file://../safe-config-service"
-  condition: safe-config-service.txsService.enabled
+  condition: safe-config-service.enabled
 - name: safe-client-gateway
   version: "0.1.0"
   repository: "file://../safe-client-gateway"
-  condition: safe-client-gateway.txsService.enabled
+  condition: safe-client-gateway.enabled
 - name: safe-wallet-web
   version: "0.1.0"
   repository: "file://../safe-wallet-web"
-  condition: safe-wallet-web.txsService.enabled
+  condition: safe-wallet-web.enabled

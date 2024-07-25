@@ -141,7 +141,6 @@ helm show values safe/safe-transaction-service
 | ganacheNode.ingress.annotations             | Node ingress annotation                                               | {}                                                                                                               |
 |                                             |                                                                       |                                                                                                                  |
 
----
 
 ## Troubleshooting
 

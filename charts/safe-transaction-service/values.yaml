@@ -13,9 +13,6 @@ fullnameOverride: ""
 ##
 imagePullSecrets: []
 
-##
-## safe-transaction-service configuration
-##
 replicaCount: 1
 
 image:

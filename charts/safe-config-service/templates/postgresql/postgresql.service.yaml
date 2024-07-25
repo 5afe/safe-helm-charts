@@ -1,4 +1,4 @@
-{{- if and (.Values.cfgService.enabled) (not .Values.cfgService.config.database.useExisting) }}
+{{- if not .Values.config.database.useExisting }}
 ---
 apiVersion: v1
 

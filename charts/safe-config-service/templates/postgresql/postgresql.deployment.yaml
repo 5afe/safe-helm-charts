@@ -1,4 +1,4 @@
-{{- if and (.Values.cfgService.enabled) (not .Values.cfgService.config.database.useExisting) }}
+{{- if not .Values.config.database.useExisting }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -21,11 +21,11 @@ spec:
           image: postgres:14-alpine
           env:
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.cfgService.config.database.password }}
+              value: {{ .Values.config.database.password }}
             - name: POSTGRES_USER
-              value: {{ .Values.cfgService.config.database.user }}
+              value: {{ .Values.config.database.user }}
             - name: POSTGRES_DB
-              value: {{ .Values.cfgService.config.database.db }}
+              value: {{ .Values.config.database.db }}
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata
           volumeMounts:
