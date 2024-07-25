@@ -1,4 +1,4 @@
-{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.database.useExisting) }}
+{{- if not .Values.config.database.useExisting }}
 ---
 apiVersion: v1
 

@@ -1,1 +1,1 @@
-Configure your safe-transaction-service in https://{{ .Values.txsService.ingress.host }}/admin
+Configure your safe-transaction-service in https://{{ .Values.ingress.host }}/admin

@@ -1,4 +1,3 @@
-{{- if .Values.txsService.enabled }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -18,45 +17,44 @@ spec:
     spec:
       containers:
         - name: scheduler
-          image: "{{ .Values.txsService.image.repository }}:{{ .Values.txsService.image.tag }}"
-          imagePullPolicy: {{ .Values.txsService.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["docker/web/celery/scheduler/run.sh"]
           env:
             - name: ETHEREUM_NODE_URL
-              {{- if .Values.txsService.config.node.useGanacheNode }}
+              {{- if .Values.config.node.useGanacheNode }}
               value: "http://{{ include "safe-transaction-service.fullname" . }}-ganache-node:8545"
               {{- else }}
-              value: {{ .Values.txsService.config.node.url }}
+              value: {{ .Values.config.node.url }}
               {{- end }}
             - name: WORKER_QUEUES
-              value: {{ .Values.txsService.config.queues }}
+              value: {{ .Values.config.queues }}
           envFrom:
             - configMapRef:
                 name: {{ include "safe-transaction-service.fullname" . }}-env
   
-          {{- with .Values.txsService.scheduler.securityContext }}
+          {{- with .Values.scheduler.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.txsService.scheduler.resources }}
+          {{- with .Values.scheduler.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.txsService.scheduler.nodeSelector }}
+      {{- with .Values.scheduler.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.scheduler.affinity }}
+      {{- with .Values.scheduler.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.scheduler.tolerations }}
+      {{- with .Values.scheduler.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.scheduler.podSecurityContext }}
+      {{- with .Values.scheduler.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
 ---
-{{- end }}

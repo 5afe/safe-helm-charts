@@ -1,4 +1,4 @@
-{{- if and .Values.txsService.enabled (not .Values.txsService.config.redis.useExisting)}}
+{{- if not .Values.config.redis.useExisting }}
 ---
 apiVersion: v1
 kind: Service

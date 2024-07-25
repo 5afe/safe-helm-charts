@@ -1,4 +1,4 @@
-{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.rabbitmq.useExisting) }}
+{{- if not .Values.config.rabbitmq.useExisting }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -21,9 +21,9 @@ spec:
           image: rabbitmq:3.11.26-management
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: {{ .Values.txsService.config.rabbitmq.user }}
+              value: {{ .Values.config.rabbitmq.user }}
             - name: RABBITMQ_DEFAULT_PASS
-              value: {{ .Values.txsService.config.rabbitmq.password }}
+              value: {{ .Values.config.rabbitmq.password }}
           ports:
             - name: http
               protocol: TCP

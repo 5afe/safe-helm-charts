@@ -1,4 +1,3 @@
-{{- if .Values.txsService.enabled }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -7,7 +6,7 @@ metadata:
   name: {{ include "safe-transaction-service.fullname" . }}-web
 
 spec:
-  replicas: {{ .Values.txsService.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ include "safe-transaction-service.fullname" . }}-web
@@ -18,30 +17,30 @@ spec:
     spec:
 
       initContainers:
-        {{- if .Values.txsService.config.database.runMigration  }}
+        {{- if .Values.config.database.runMigration  }}
         - name: init-migration
-          image: "{{ .Values.txsService.image.repository }}:{{ .Values.txsService.image.tag }}"
-          imagePullPolicy: {{ .Values.txsService.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/bash
             - -c
             - python manage.py migrate --no-input
           env:
             - name: ETHEREUM_NODE_URL
-              {{- if .Values.txsService.config.node.useGanacheNode }}
+              {{- if .Values.config.node.useGanacheNode }}
               value: "http://{{ include "safe-transaction-service.fullname" . }}-ganache-node:8545"
               {{- else }}
-              value: {{ .Values.txsService.config.node.url }}
+              value: {{ .Values.config.node.url }}
               {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ include "safe-transaction-service.fullname" . }}-env
         {{- end }}
 
-        {{- if .Values.txsService.config.admin.auth.enabled  }}
+        {{- if .Values.config.admin.auth.enabled  }}
         - name: init-sudo
-          image: "{{ .Values.txsService.image.repository }}:{{ .Values.txsService.image.tag }}"
-          imagePullPolicy: {{ .Values.txsService.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/bash
             - -c
@@ -53,18 +52,18 @@ spec:
 
       containers:
         - name: web
-          image: "{{ .Values.txsService.image.repository }}:{{ .Values.txsService.image.tag }}"
-          imagePullPolicy: {{ .Values.txsService.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: [ "docker/web/run_web.sh" ]
           ports:
             - name: web-ui
               containerPort: 8888
           env:
             - name: ETHEREUM_NODE_URL
-              {{- if .Values.txsService.config.node.useGanacheNode }}
+              {{- if .Values.config.node.useGanacheNode }}
               value: "http://{{ include "safe-transaction-service.fullname" . }}-ganache-node:8545"
               {{- else }}
-              value: {{ .Values.txsService.config.node.url }}
+              value: {{ .Values.config.node.url }}
               {{- end }}
           envFrom:
             - configMapRef:
@@ -82,11 +81,11 @@ spec:
           volumeMounts:
             - name: gunicorn-volume
               mountPath: /nginx
-          {{- with .Values.txsService.web.securityContext }}
+          {{- with .Values.web.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.txsService.web.resources }}
+          {{- with .Values.web.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -123,7 +122,7 @@ spec:
             - name: gunicorn-volume
               mountPath: /nginx
 
-          {{- with .Values.txsService.web.securityContext }}
+          {{- with .Values.web.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -142,21 +141,20 @@ spec:
           configMap:
             name: {{ include "safe-transaction-service.fullname" . }}-nginx-config
 
-      {{- with .Values.txsService.web.nodeSelector }}
+      {{- with .Values.web.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.web.affinity }}
+      {{- with .Values.web.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.web.tolerations }}
+      {{- with .Values.web.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.txsService.web.podSecurityContext }}
+      {{- with .Values.web.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
-{{- end }}
+---

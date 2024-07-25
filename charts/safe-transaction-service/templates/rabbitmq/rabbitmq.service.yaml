@@ -1,4 +1,4 @@
-{{- if and (.Values.txsService.enabled) (not .Values.txsService.config.rabbitmq.useExisting) }}
+{{- if not .Values.config.rabbitmq.useExisting }}
 ---
 apiVersion: v1
 kind: Service
