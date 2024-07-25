@@ -13,29 +13,34 @@ fullnameOverride: ""
 ##
 imagePullSecrets: []
 
-##
-## ---------------------------------------------------------------------------
-## SAFE-WALLET CONFIGURATION
-## for more options see xxxxxxx
-##
-walletWeb:
+replicaCount: 1
+
+image:
+  repository: gjeanmart/safe-wallet-web #safeglobal/safe-wallet-web
+  tag: force_safe_deployment #latest
+  pullPolicy: Always
+
+extraEnv: []
+
+config:
+  clientGateway:
+    url: "https://cgw-service.minikube.net"
+  walletConnect:
+    projectId: ""
+    bridge: ""
+
+web:
+  nodeSelector: {}
+  affinity: {}
+  tolerations: {}
+  securityContext: {}
+  podSecurityContext: {}
+  resources: {} 
+
+ingress:
   enabled: true
-  replicaCount: 1
-  image:
-    repository: gjeanmart/safe-wallet-web #safeglobal/safe-wallet-web
-    tag: force_safe_deployment #latest
-    pullPolicy: Always
-  extraEnv: []
-  config:
-    clientGateway:
-      url: "https://cgw-service.minikube.net"
-    walletConnect:
-      projectId: ""
-      bridge: ""
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    host: safe-wallet.minikube.net
-    annotations:
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/enable-cors: "false"
+  ingressClassName: nginx
+  host: safe-wallet.minikube.net
+  annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/enable-cors: "false"
