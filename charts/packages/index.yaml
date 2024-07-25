@@ -1,25 +1,75 @@
 apiVersion: v1
 entries:
-  safe-stack:
+  safe-config-service:
   - apiVersion: v2
-    appVersion: 2024-07-24_001
-    created: "2024-07-24T15:14:44.112974+02:00"
-    description: A Helm chart to deploy Safe stack
-    digest: 6d6d3c8f35cc454fca86f3621504a67d87536d4a6dcef439b16c241c4e0ffb83
+    appVersion: v2.83.0
+    created: "2024-07-25T14:44:53.463764+02:00"
+    description: A Helm chart to deploy safe-config-service
+    digest: 7bc0b23a9b945c0b22da016ffac7cb39f292d44f18757d6a96a5be15aca08abd
     home: https://safe.global
     icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
     keywords:
     - safe
     - stack
     - web3
-    - aa
+    - wallet
+    - smart-account
     maintainers:
     - email: greg@safe.global
       name: gjeanmart
-    name: safe-stack
+    name: safe-config-service
     sources:
-    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-stack
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-config-service
+    - https://github.com/safe-global/safe-config-service
     urls:
-    - safe-stack-0.1.0.tgz
+    - https://5afe.github.io/safe-helm-charts/charts/packages/safe-config-service-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-24T15:14:44.112018+02:00"
+  safe-transaction-service:
+  - apiVersion: v2
+    appVersion: v5.5.0
+    created: "2024-07-25T14:44:53.464498+02:00"
+    description: A Helm chart to deploy safe-transaction-service
+    digest: 0946b0e54cdff52cfc0a3796703c0c5e5568f488d9ee4ae848e2042051afe282
+    home: https://safe.global
+    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    keywords:
+    - safe
+    - stack
+    - web3
+    - wallet
+    - smart-account
+    maintainers:
+    - email: greg@safe.global
+      name: gjeanmart
+    name: safe-transaction-service
+    sources:
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-transaction-service
+    - https://github.com/safe-global/safe-transaction-service
+    urls:
+    - https://5afe.github.io/safe-helm-charts/charts/packages/safe-transaction-service-0.1.0.tgz
+    version: 0.1.0
+  safe-wallet-web:
+  - apiVersion: v2
+    appVersion: v1.39.2
+    created: "2024-07-25T14:44:53.464729+02:00"
+    description: A Helm chart to deploy safe-wallet-web
+    digest: 9f7df09a17401750587cc58c34a9b4df38d8318e91899aa245800df31b29721b
+    home: https://safe.global
+    icon: https://file.notion.so/f/f/5010e4ee-a4be-4f75-a21f-79bde3054f7f/9ad9e60c-dd0d-4783-9a32-100d888a075f/Safe_Logos_Symbol_Black.png?id=c59948aa-158b-4f54-8ab7-9c30cae68fee&table=block&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&expirationTimestamp=1721916000000&signature=8RXoougMiHsHbAe6mc4ieAG-MGK-W8IEoMvknbUJp0c&downloadName=Safe_Logos_Symbol_Black.png
+    keywords:
+    - safe
+    - stack
+    - web3
+    - wallet
+    - smart-account
+    maintainers:
+    - email: greg@safe.global
+      name: gjeanmart
+    name: safe-wallet-web
+    sources:
+    - https://github.com/5afe/safe-helm-charts/tree/main/charts/safe-wallet-web
+    - https://github.com/safe-global/safe-wallet-web
+    urls:
+    - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-07-25T14:44:53.463351+02:00"

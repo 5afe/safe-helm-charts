@@ -11,5 +11,5 @@ dependencies:
 - name: safe-wallet-web
   repository: file://../safe-wallet-web
   version: 0.1.0
-digest: sha256:a7ac48b00a5c9f3ac3e8ebb68a7cbff3ac9bd0f2d83587c104cc91de56a406d6
-generated: "2024-07-24T22:53:40.875186+02:00"
+digest: sha256:959560f5a5a45a477db9d271e8b8211642be074e81028c312e09f475a3ffdc56
+generated: "2024-07-25T14:45:57.629334+02:00"

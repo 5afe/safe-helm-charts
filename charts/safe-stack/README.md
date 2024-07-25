@@ -24,10 +24,10 @@ We also package the following helm charts from Bitnami for you to _optionally_ u
 - [Kubernetes 1.19+](https://kubernetes.io/)
 - Persistent Volume provisioner support in the underlying infrastructure
 - [Helm 3+](https://helm.sh). Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
-- PostgreSQL v14
-- Redis
-- RabbitMQ 
-- Ethereum node
+- [Ethereum Node JSON-RPC Endpoint](https://ethereum.org/en/developers/docs/apis/json-rpc/)
+- PostgreSQL v14 _(optional)_
+- Redis _(optional)_
+- RabbitMQ _(optional)_
 
 
 ## Installing the Chart
@@ -36,6 +36,7 @@ To install the chart with the release name `[RELEASE-NAME]`:
 
 ```bash
 helm repo add safe https://5afe.github.io/safe-helm-charts/charts/packages
+
 helm install [RELEASE-NAME] safe/safe-stack
 ```
 
@@ -76,81 +77,12 @@ helm show values safe/safe-stack
 
 | Parameter                                                  | Description                                                                                         | Default                    |
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------|
-| `xxxxxx`                                         | xxxx                                                                                | `xxxx`     
+| nameOverride                                | Provide a name in place of safe-stack for `app:` labels | ""                                                                                                               |
+| fullnameOverride                            | Provide a name to substitute for the full names of resources          | ""                                                                                                               |
+| imagePullSecrets                            | Reference to one or more secrets to be used when pulling images       | ""                                                                                                               |
 
 
 ## Troubleshooting
 
 - 
 
-
-## Development 
-
-### Developing locally with Minikube (on MacOS)
-
-#### Install and Configure [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download)
-
-```bash
-brew install minikube
-minikube start
-minikube addons enable ingress
-```
-
-#### Configure TLS for your Ingresses
-
-```bash
-brew install mkcert
-mkcert -install
-mkcert -CAROOT
-mkcert -key-file key.pem -cert-file cert.pem minikube.net *.minikube.net
-
-kubectl -n kube-system create secret tls mkcert --key key.pem --cert cert.pem
-
-vi /etc/hosts
-127.0.0.1 txs-service.minikube.net
-127.0.0.1 cgw-service.minikube.net
-127.0.0.1 cfg-service.minikube.net
-127.0.0.1 safe-wallet.minikube.net
-
-minikube addons configure ingress
-minikube addons disable ingress
-minikube addons enable ingress
-```
-
-
-#### Install the Chart
-
-```bash
-helm install my-safe-stack .
-
-$ kubectl get pods
-NAME                                           READY   STATUS    RESTARTS   AGE
-my-safe-stack-cfg-db-669fd4fb69-5n7pj          1/1     Running   0          4h21m
-my-safe-stack-cfg-web-798dc55779-w2gqc         2/2     Running   0          65m
-my-safe-stack-cgw-redis-dcf485664-nq8df        1/1     Running   0          4h21m
-my-safe-stack-cgw-web-b6f9d64bf-hlxq6          1/1     Running   0          4h21m
-my-safe-stack-ganache-node-687b5f64c9-sbwht    1/1     Running   0          4h21m
-my-safe-stack-txs-db-7ff8d54fcd-qmvxj          1/1     Running   0          4h21m
-my-safe-stack-txs-rabbitmq-569f559f67-rqtv4    1/1     Running   0          4h21m
-my-safe-stack-txs-redis-58d946c556-5krs4       1/1     Running   0          4h21m
-my-safe-stack-txs-scheduler-65b796f5c6-rqh7r   1/1     Running   0          4h21m
-my-safe-stack-txs-web-669f98475c-blxr7         2/2     Running   0          4h21m
-my-safe-stack-txs-worker-649b65bf65-k29z8      1/1     Running   0          4h21m
-my-safe-stack-wallet-79894d9789-z9sph          1/1     Running   0          4h21m
-```
-
---- 
-
-### TODO list
-
-- [X] Config service
-- [X] Client gateway service
-- [X] Wallet service
-- [ ] Events service
-- [ ] use Secret when necessary
-- [ ] Use Helm dependancies for PG, Redis and RabbitMQ
-- [ ] Configure Helm output after install to explain how to configure txs-service and cfg-service
-      - NOTES.txt
-
-### Bugs list
-- [ ] CFG Media URL not working or use S3 (e.g minio)
