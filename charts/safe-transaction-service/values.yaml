@@ -56,8 +56,8 @@ config:
   admin:
     auth:
       enabled: true
-      username: root
-      password: root123
+      username: root  # change me
+      password: root123  # change me
       email: root@example.com
 
 scheduler:

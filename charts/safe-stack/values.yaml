@@ -19,94 +19,93 @@ imagePullSecrets: []
 ## for more options see xxxxxxx
 ##
 safe-transaction-service:
-  txsService:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: safeglobal/safe-transaction-service
+    tag: latest
+    pullPolicy: Always
+  extraEnv: []
+  config:
+    debug: true
+    queues: default,indexing,contracts,tokens,notifications,webhooks
+    secretKey: "Very-secure-secret-string"
+    csrf:
+      trustedOrigins: "https://safe-wallet.minikube.net"
+    node:
+      url: # leave empty if you use ganache
+      useGanacheNode: true
+    database:
+      runMigration: true
+      useExisting: false
+      url: # leave empty unless useExisting=true e.g plsql://
+      password: postgres
+      user: postgres
+      db: txs
+      port: 5432
+      persistence:
+        storageClass: standard
+        size: 100Mi
+    redis: 
+      useExisting: false
+      url: # leave empty unless useExisting=true e.g redis://
+    rabbitmq: 
+      useExisting: false
+      url: # leave empty unless useExisting=true e.g amqp://
+      user: guest
+      password: guest
+    admin:
+      auth:
+        enabled: true
+        username: root
+        password: root123
+        email: root@example.com
+  scheduler:
+    nodeSelector: {}
+    affinity: {}
+    tolerations: {}
+    securityContext: {}
+    podSecurityContext: {}
+    resources:
+      requests:
+        memory: "100Mi"
+        cpu: "50m"
+      limits:
+        memory: "200Mi"
+        cpu: "100m"
+  indexer:
+    nodeSelector: {}
+    affinity: {}
+    tolerations: {}
+    securityContext: {}
+    podSecurityContext: {}
+    resources: 
+      requests:
+        memory: "300Mi"
+        cpu: "50m"
+      limits:
+        memory: "600Mi"
+        cpu: "100m"
+  web:
+    nodeSelector: {}
+    affinity: {}
+    tolerations: {}
+    securityContext: {}
+    podSecurityContext: {}
+    resources:
+      requests:
+        memory: "1000Mi"
+        cpu: "500m"
+      limits:
+        memory: "2000Mi"
+        cpu: "1000m"
+  ingress:
     enabled: true
-    replicaCount: 1
-    image:
-      repository: safeglobal/safe-transaction-service
-      tag: latest
-      pullPolicy: Always
-    extraEnv: []
-    config:
-      debug: true
-      queues: default,indexing,contracts,tokens,notifications,webhooks
-      secretKey: "Very-secure-secret-string"
-      csrf:
-        trustedOrigins: "https://safe-wallet.minikube.net"
-      node:
-        url: # leave empty if you use ganache
-        useGanacheNode: true
-      database:
-        runMigration: true
-        useExisting: false
-        url: # leave empty unless useExisting=true e.g plsql://
-        password: postgres
-        user: postgres
-        db: txs
-        port: 5432
-        persistence:
-          storageClass: standard
-          size: 100Mi
-      redis: 
-        useExisting: false
-        url: # leave empty unless useExisting=true e.g redis://
-      rabbitmq: 
-        useExisting: false
-        url: # leave empty unless useExisting=true e.g amqp://
-        user: guest
-        password: guest
-      admin:
-        auth:
-          enabled: true
-          username: root
-          password: root123
-          email: root@example.com
-    scheduler:
-      nodeSelector: {}
-      affinity: {}
-      tolerations: {}
-      securityContext: {}
-      podSecurityContext: {}
-      resources:
-        requests:
-          memory: "100Mi"
-          cpu: "50m"
-        limits:
-          memory: "200Mi"
-          cpu: "100m"
-    indexer:
-      nodeSelector: {}
-      affinity: {}
-      tolerations: {}
-      securityContext: {}
-      podSecurityContext: {}
-      resources: 
-        requests:
-          memory: "300Mi"
-          cpu: "50m"
-        limits:
-          memory: "600Mi"
-          cpu: "100m"
-    web:
-      nodeSelector: {}
-      affinity: {}
-      tolerations: {}
-      securityContext: {}
-      podSecurityContext: {}
-      resources:
-        requests:
-          memory: "1000Mi"
-          cpu: "500m"
-        limits:
-          memory: "2000Mi"
-          cpu: "1000m"
-    ingress:
-      enabled: true
-      ingressClassName: nginx
-      host: txs-service.minikube.net
-      annotations: 
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/enable-cors: "false"
+    ingressClassName: nginx
+    host: txs-service.minikube.net
+    annotations: 
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/enable-cors: "false"
   ganacheNode:
     enabled: true
     config:
