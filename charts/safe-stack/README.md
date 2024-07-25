@@ -1,9 +1,5 @@
 # Safe-Stack
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/safe-stack)](https://artifacthub.io/packages/search?repo=safe-stack)
-
-[Safe](https://safe.global/) is the leading Web3 Smart-Account infrastructure.
-
 > [!WARNING]  
 > **Disclaimer:** This repository is currently a work in progress. While contributions and feedback are welcome, please note that the code and features may change frequently, and some functionalities may not be fully implemented or tested. Use this project at your own risk.
 
