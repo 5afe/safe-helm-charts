@@ -137,7 +137,7 @@ helm show values safe/safe-transaction-service
 | `ingress.enabled` | Enable ingress | `true` |
 | `ingress.ingressClassName` | Ingress class name | `nginx` |
 | `ingress.host` | Ingress host | `txs-service.minikube.net` |
-| `ingress.annotations` | Ingress annotations | `nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"` |
+| `ingress.annotations` | Ingress annotations | <code>nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"</code> |
 
 ### Ganache (testing node) parameters
 

@@ -107,7 +107,7 @@ helm show values safe-wallet-web
 | `ingress.enabled` | Enable ingress | `true` |
 | `ingress.ingressClassName` | Ingress class name | `nginx` |
 | `ingress.host` | Ingress host | `cgw-service.minikube.net` |
-| `ingress.annotations` | Ingress annotations | `nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"` |
+| `ingress.annotations` | Ingress annotations | <code>nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"</code> |
 
 
 ## Troubleshooting
