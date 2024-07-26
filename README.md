@@ -90,7 +90,6 @@ We're always happy to review a pull request :) Please just be sure to check the 
 
 ## TODO list
 
-- [ ] Use Helm dependancies for PG, Redis and RabbitMQ
 - [ ] Events service
 - [ ] use Secret when necessary
 - [ ] GitHub Action to automate release

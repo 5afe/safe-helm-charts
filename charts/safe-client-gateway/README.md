@@ -67,6 +67,64 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 helm show values safe-client-gateway
 ```
 
+
+### Common parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| nameOverride | Provide a name in place of safe-client-gateway for `app:` labels | "" |
+| fullnameOverride | Provide a name to substitute for the full names of resources | "" |
+
+### Installation parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| replicaCount | Number of instance for safe-client-gateway-web | 1 |
+| image.repository | safe-client-gateway image name | safeglobal/safeglobal/safe-client-gateway-nest |
+| image.tag | safe-client-gateway image tag | latest |
+| image.pullPolicy | Image pull policy | Always |
+| extraEnv | Specify additional environment variables | [] |
+
+### Configuration parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| config.debug | Enable debug mode | true |
+| config.cfgService.url | URL of the Config-Service | "" |
+| config.security.authToken | Authentication token | "" |
+| config.redis.host | Redis Host<br>if `safe-client-gateway-redis.enabled=false` | "" |
+| config.redis.port | Redis Port | 6379 |
+
+### Pod parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| web.nodeSelector |  | {} |
+| web.affinity |  | {} |
+| web.tolerations |  | {} |
+| web.securityContext |  | {} |
+| web.podSecurityContext |  | {} |
+| web.resources |  | {} |
+
+### Ingress parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| ingress.enabled | Enable ingress | true |
+| ingress.ingressClassName | Ingress class name | nginx |
+| ingress.host | Ingress host | cgw-service.minikube.net |
+| ingress.annotations | Ingress annotations | nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "true"<br>nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"<br>nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"<br>nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp" |
+
+### Redis parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| safe-client-gateway-redis.enabled | Spin up a Redis instance | true |
+
+Refer to [bitnami/redis](https://artifacthub.io/packages/helm/bitnami/redis) for configuration.
+
+
+
 | Parameter                                   | Description                                                           | Default                                                                                                          |
 |---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | nameOverride                                | Provide a name in place of safe-client-gateway for `app:` labels | ""                                                                                                               |
@@ -91,8 +149,7 @@ helm show values safe-client-gateway
 | ingress.enabled                             | Enable ingress                                                        | true                                                                                                             |
 | ingress.ingressClassName                    | Ingress class name                                                    | nginx                                                                                                            |
 | ingress.host                                | Ingress host                                                          | cgw-service.minikube.net                                                                                         |
-| ingress.annotations                         | Ingress annotations                                                   | nginx.ingress.kubernetes.io/force-ssl-redirect :  "true"      nginx.ingress.kubernetes.io/enable-cors :  "true"      nginx.ingress.kubernetes.io/cors-allow-methods :  "OPTIONS, GET, HEAD, DELETE, PUT, POST"      nginx.ingress.kubernetes.io/cors-allow-origin :  "https://*.minikube.net"      nginx.ingress.kubernetes.io/cors-allow-headers :  "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp" |
-|                                             |                                                                       |                                                                                                                  |
+| ingress.annotations | Ingress annotations | nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "true"<br>nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"<br>nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"<br>nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp" |
 
 
 ## Troubleshooting
