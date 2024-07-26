@@ -8,10 +8,6 @@ nameOverride: ""
 ## Provide a name to substitute for the full names of resources
 ##
 fullnameOverride: ""
-## Reference to one or more secrets to be used when pulling images
-## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-##
-imagePullSecrets: []
 
 replicaCount: 1
 
@@ -32,12 +28,12 @@ config:
     url: # leave empty if you use ganache
     useGanacheNode: true
   database:
-    url: # leave empty if postgresql.enabled=true (e.g plsql://user:pw@host:port/db)
+    url: # leave empty if safe-transaction-service-postgresql.enabled=true (e.g plsql://user:pw@host:port/db)
     runMigration: true
   redis: 
-    url: # leave empty if redis.enabled=true e.g redis://
+    url: # leave empty if safe-transaction-service-redis.enabled=true (e.g redis://)
   rabbitmq: 
-    url: # leave empty if rabbitmq.enabled=true e.g amqp://
+    url: # leave empty if safe-transaction-service-rabbitmq.enabled=true (e.g amqp://)
   admin:
     auth:
       enabled: true

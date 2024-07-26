@@ -71,16 +71,29 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 helm show values safe/safe-transaction-service
 ```
 
+### Common parameters
+
 | Parameter                                   | Description                                                           | Default                                                                                                          |
 |---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | nameOverride                                | Provide a name in place of safe-transaction-service for `app:` labels | ""                                                                                                               |
 | fullnameOverride                            | Provide a name to substitute for the full names of resources          | ""                                                                                                               |
-| imagePullSecrets                            | Reference to one or more secrets to be used when pulling images       | ""                                                                                                               |
+
+### Installation parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | replicaCount                                | Number of instance for safe-transaction-service-web                   | 1                                                                                                                |
 | image.repository                            | safe-transaction-service image name                                   | safeglobal/safe-transaction-service                                                                              |
 | image.tag                                   | safe-transaction-service image tag                                    | latest                                                                                                           |
 | image.pullPolicy                            | Image pull policy                                                     | Always                                                                                                           |
 | extraEnv                                    | Specify additional environment variables                              | []                                                                                                               |
+
+
+
+### Configuration parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | config.debug                                | Enable debug mode                                                     | true                                                                                                             |
 | config.queues                               | Worker queues to enabled                                              | default,indexing,contracts,tokens,notifications,webhooks                                                         |
 | config.secretKey                            | Django secret key                                                     | ""                                                                                                               |
@@ -88,24 +101,18 @@ helm show values safe/safe-transaction-service
 | config.node.url                             | URL of the Ethereum RPC endpoint                                      | ""                                                                                                               |
 | config.node.useGanacheNode                  | Specify if you want to use a testing Ganache node                     | false                                                                                                            |
 | config.database.runMigration                | Run Database migration on startup                                     | true                                                                                                             |
-| config.database.useExisting                 | Use an existing PostgreSQL instance (or spin up one)                  | false                                                                                                            |
-| config.database.url                         | Database Url (plsql://...) when config.database.useExisting=true      | ""                                                                                                               |
-| config.database.port                        | Database port when config.database.useExisting=false                  | 5432                                                                                                             |
-| config.database.user                        | Database username when config.database.useExisting=false              | postgres                                                                                                         |
-| config.database.password                    | Database password when config.database.useExisting=false              | postgres                                                                                                         |
-| config.database.db                          | Database name when config.database.useExisting=false                  | txs                                                                                                              |
-| config.database.persistence.storageClass    | Database persistence class when config.database.useExisting=false     | standard                                                                                                         |
-| config.database.persistence.size            | Database persistence size when config.database.useExisting=false      | 100Mi                                                                                                            |
-| config.redis.useExisting                    | Use an existing Redis instance (or spin up one)                       | false                                                                                                            |
-| config.redis.url                            | Redis Url (redis://...) when config.redis.useExisting=true            | ""                                                                                                               |
-| config.rabbitmq.useExisting                 | Use an existing RabbitMQ instance (or spin up one)                    | false                                                                                                            |
-| config.rabbitmq.url                         | RabbitMQ Url (amqp://...) when config.rabbitmq.useExisting=true       | ""                                                                                                               |
-| config.rabbitmq.username                    | RabbitMQ username when config.rabbitmq.useExisting=false              | guest                                                                                                            |
-| config.rabbitmq.password                    | RabbitMQ password when config.rabbitmq.useExisting=false              | guest                                                                                                            |
-| config.admin.auth.enabled                   | Autoconfigure Django admin panel on startup                           | true                                                                                                             |
+| config.database.url                         | Database Url (plsql://...) if `safe-transaction-service-postgresql.enabled=false` (e.g `plsql://user:pw@host:port/db`)      | ""                                                                                                               |
+| config.redis.url                            | Redis Url (redis://...) if `safe-transaction-service-redis.enabled=false` (e.g `redis://`)           | ""                                                                                                               |
+| config.rabbitmq.url                         | RabbitMQ Url (amqp://...) if `safe-transaction-service-rabbitmq.enabled=false` (e.g `amqp://`)     | ""                                                                                                               |
+| config.admin.auth.enabled                   | Auto-configure Django admin panel on startup                           | true                                                                                                             |
 | config.admin.auth.username                  | Django admin panel username                                           | root                                                                                                             |
 | config.admin.auth.password                  | Django admin panel password                                           | root123                                                                                                          |
 | config.admin.auth.email                     | Django admin panel email                                              | root@example.com                                                                                                 |
+
+### Pod parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | scheduler.nodeSelector                      |                                                                       | {}                                                                                                               |
 | scheduler.affinity                          |                                                                       | {}                                                                                                               |
 | scheduler.tolerations                       |                                                                       | {}                                                                                                               |
@@ -124,10 +131,21 @@ helm show values safe/safe-transaction-service
 | web.securityContext                         |                                                                       | {}                                                                                                               |
 | web.podSecurityContext                      |                                                                       | {}                                                                                                               |
 | web.resources                               |                                                                       | {}                                                                                                               |
+
+### Ingress parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | ingress.enabled                             | Enable ingress                                                        | true                                                                                                             |
 | ingress.ingressClassName                    | Ingress class name                                                    | nginx                                                                                                            |
 | ingress.host                                | Ingress host                                                          | txs-service.minikube.net                                                                                         |
 | ingress.annotations                         | Ingress annotations                                                   | nginx.ingress.kubernetes.io/force-ssl-redirect :  "true"      nginx.ingress.kubernetes.io/enable-cors :  "false" |
+
+
+### Ganache node parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | ganacheNode.enabled                         | Enable a Ganache (testing) node                                       | true                                                                                                             |
 | ganacheNode.config.mnemonic                 | Ganache mnemonic used to deploy Safe contracts                        | "test test test test test test test test test test test junk"                                                    |
 | ganacheNode.config.chainId                  | Ganache Chain ID                                                      | 1337                                                                                                             |
@@ -138,6 +156,35 @@ helm show values safe/safe-transaction-service
 | ganacheNode.ingress.host                    | Node ingress host                                                     | node.minikube.net                                                                                                |
 | ganacheNode.ingress.annotations             | Node ingress annotation                                               | {}                                                                                                               |
 |                                             |                                                                       |                                                                                                                  |
+### Database parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| safe-transaction-service-postgresql.enabled             | Spin up a PostgreSQL database                                               | true                                                                                                               |
+|                                             |                                                                       |                                                       
+
+Refer to [bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql) for configuration.
+
+### Redis parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| safe-transaction-service-redis.enabled             | Spin up a Redis instance                                               | true                                                                                                               |
+|                                             |                                                                       |                                                       
+
+Refer to [bitnami/redis](https://artifacthub.io/packages/helm/bitnami/redis) for configuration.
+
+### RabbitMQ parameters
+
+| Parameter                                   | Description                                                           | Default                                                                                                          |
+|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| safe-transaction-service-rabbitmq.enabled             | Spin up a RabbitMQ instance                                               | true                                                                                                               |
+|                                             |                                                                       |                                                       
+
+Refer to [bitnami/rabbitmq](https://artifacthub.io/packages/helm/bitnami/rabbitmq) for configuration.
+
+
+
 
 
 ## Troubleshooting
