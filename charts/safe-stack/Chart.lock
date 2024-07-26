@@ -12,4 +12,4 @@ dependencies:
   repository: file://../safe-wallet-web
   version: 0.1.0
 digest: sha256:959560f5a5a45a477db9d271e8b8211642be074e81028c312e09f475a3ffdc56
-generated: "2024-07-26T10:48:34.37518+02:00"
+generated: "2024-07-26T12:53:00.525862+02:00"
