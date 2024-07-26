@@ -74,7 +74,7 @@ For more information, please checkout the chart level [README.md](./charts/safe-
 ---
 
 ## Support and Contribution
-This helm chart is community maintained, and not supported by Safe CC GmbH. Please also review the official [Safe Code of Conduct*](https://changeme) and this repo's [contributing doc*](./CONTRIBUTING.md) before contributing.
+This helm chart is  maintained by Safe and its community. Please also review the official [Safe Code of Conduct*](https://changeme) and this repo's [contributing doc*](./CONTRIBUTING.md) before contributing.
 
 ### Questions and Discussions
 [GitHub Discussion*](https://changeme)
