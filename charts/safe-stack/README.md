@@ -100,7 +100,7 @@ Refer to [safe-global/safe-config-service](../safe-config-service/) for configur
 |---|---|---|
 | safe-client-gateway.enabled | Spin up safe-client-gateway  | true |
 
-Refer to [safe-global/safe-client-gateway ](../safe-client-gateway /) for configuration.
+Refer to [safe-global/safe-client-gateway](../safe-client-gateway/) for configuration.
 
 ### safe-wallet-web parameters
 
@@ -108,7 +108,7 @@ Refer to [safe-global/safe-client-gateway ](../safe-client-gateway /) for config
 |---|---|---|
 | safe-wallet-web.enabled | Spin up safe-wallet-web  | true |
 
-Refer to [safe-global/safe-wallet-web ](../safe-wallet-web /) for configuration.
+Refer to [safe-global/safe-wallet-web](../safe-wallet-web/) for configuration.
 
 
 
