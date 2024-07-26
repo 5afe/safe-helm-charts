@@ -113,7 +113,7 @@ helm show values safe-client-gateway
 | `ingress.enabled` | Enable ingress | `true` |
 | `ingress.ingressClassName` | Ingress class name | `nginx` |
 | `ingress.host` | Ingress host | `cgw-service.minikube.net` |
-| `ingress.annotations` | Ingress annotations | `nginx.ingress.kubernetes.io/force-ssl-redirect: "true"\nginx.ingress.kubernetes.io/enable-cors: "true"\nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"<br>nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"<br>nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"` |
+| `ingress.annotations` | Ingress annotations | <pre><code>nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "true"<br>nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"<br>nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"<br>nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"</code></pre> |
 
 ### Redis parameters
 
