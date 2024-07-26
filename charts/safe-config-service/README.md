@@ -76,7 +76,7 @@ helm show values safe-config-service
 
 | Parameter | Description | Default |
 |---|---|---|
-| replicaCount | Number of instance for safe-config-service -web | 1 |
+| replicaCount | Number of instance for safe-config-service-web | 1 |
 | image.repository | safe-config-service  image name | safeglobal/safe-config-service |
 | image.tag | safe-config-service  image tag | latest |
 | image.pullPolicy | Image pull policy | Always |

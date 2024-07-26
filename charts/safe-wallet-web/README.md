@@ -62,30 +62,52 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 helm show values safe-wallet-web
 ```
 
-| Parameter                                   | Description                                                           | Default                                                                                                          |
-|---------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| nameOverride                                | Provide a name in place of safe-wallet-web for `app:` labels | ""                                                                                                               |
-| fullnameOverride                            | Provide a name to substitute for the full names of resources          | ""                                                                                                               |
-| imagePullSecrets                            | Reference to one or more secrets to be used when pulling images       | ""                                                                                                               |
-| replicaCount                                | Number of instance for safe-wallet-web-web                   | 1                                                                                                                |
-| image.repository                            | safe-wallet-web image name                                   | safeglobal/safe-wallet-web                                                                              |
-| image.tag                                   | safe-wallet-web image tag                                    | latest                                                                                                           |
-| image.pullPolicy                            | Image pull policy                                                     | Always                                                                                                           |
-| extraEnv                                    | Specify additional environment variables                              | []                                                                                                               |
-| config.clientGateway.url                    | URL of the Client-Gateway                                             | ""                                                                                                               |
-| config.walletConnect.projectId              | Wallet-Connect project ID                                             | ""                                                                                                            |
-| config.walletConnect.bridge                 | Wallet-Connect Bridge                                                 | ""                                                                                                               |
-| web.nodeSelector                            |                                                                       | {}                                                                                                               |
-| web.affinity                                |                                                                       | {}                                                                                                               |
-| web.tolerations                             |                                                                       | {}                                                                                                               |
-| web.securityContext                         |                                                                       | {}                                                                                                               |
-| web.podSecurityContext                      |                                                                       | {}                                                                                                               |
-| web.resources                               |                                                                       | {}                                                                                                               |
-| ingress.enabled                             | Enable ingress                                                        | true                                                                                                             |
-| ingress.ingressClassName                    | Ingress class name                                                    | nginx                                                                                                            |
-| ingress.host                                | Ingress host                                                          | safe-wallet.minikube.net                                                                                         |
-| ingress.annotations                         | Ingress annotations                                                   | nginx.ingress.kubernetes.io/force-ssl-redirect :  "true"      nginx.ingress.kubernetes.io/enable-cors :  "false" |
-|                                             |                                                                       |                                                                                                                                                                                                                    |
+
+### Common parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| nameOverride | Provide a name in place of safe-wallet-web for `app:` labels | "" |
+| fullnameOverride | Provide a name to substitute for the full names of resources | "" |
+
+### Installation parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| replicaCount | Number of instance for safe-wallet-web | 1 |
+| image.repository | safe-wallet-web  image name | safeglobal/safe-wallet-web |
+| image.tag | safe-wallet-web image tag | latest |
+| image.pullPolicy | Image pull policy | Always |
+| extraEnv | Specify additional environment variables | [] |
+
+### Configuration parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| config.debug | Enable debug mode | true |
+| config.clientGateway.url | URL of the Client-Gateway | "" |
+| config.walletConnect.projectId | Wallet-Connect project ID | "" |
+| config.walletConnect.bridge | Wallet-Connect Bridge | "" |
+
+### Pod parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| web.nodeSelector |  | {} |
+| web.affinity |  | {} |
+| web.tolerations |  | {} |
+| web.securityContext |  | {} |
+| web.podSecurityContext |  | {} |
+| web.resources |  | {} |
+
+### Ingress parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| ingress.enabled | Enable ingress | true |
+| ingress.ingressClassName | Ingress class name | nginx |
+| ingress.host | Ingress host | cgw-service.minikube.net |
+| ingress.annotations | Ingress annotations | nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false" |
 
 
 ## Troubleshooting
