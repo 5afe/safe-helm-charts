@@ -120,7 +120,7 @@ helm show values safe-config-service
 | `ingress.enabled` | Enable ingress | `true` |
 | `ingress.ingressClassName` | Ingress class name | `nginx` |
 | `ingress.host` | Ingress host | `cgw-service.minikube.net` |
-| `ingress.annotations` | Ingress annotations | <code>nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"</code> |
+| `ingress.annotations` | Ingress annotations | <pre>nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"</pre> |
 
 ### Database parameters
 
