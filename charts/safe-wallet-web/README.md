@@ -35,10 +35,10 @@ The command deploys safe-wallet-web on the Kubernetes cluster in the default con
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `[RELEASE-NAME]` deployment:
+To uninstall the `[RELEASE-NAME]` deployment:
 
 ```bash
-helm delete [RELEASE-NAME]
+helm uninstall [RELEASE-NAME]
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -67,47 +67,47 @@ helm show values safe-wallet-web
 
 | Parameter | Description | Default |
 |---|---|---|
-| nameOverride | Provide a name in place of safe-wallet-web for `app:` labels | "" |
-| fullnameOverride | Provide a name to substitute for the full names of resources | "" |
+| `nameOverride` | Provide a name in place of safe-wallet-web for `app:` labels | `""` |
+| `fullnameOverride` | Provide a name to substitute for the full names of resources | `""` |
 
 ### Installation parameters
 
 | Parameter | Description | Default |
 |---|---|---|
-| replicaCount | Number of instance for safe-wallet-web | 1 |
-| image.repository | safe-wallet-web  image name | safeglobal/safe-wallet-web |
-| image.tag | safe-wallet-web image tag | latest |
-| image.pullPolicy | Image pull policy | Always |
-| extraEnv | Specify additional environment variables | [] |
+| `replicaCount` | Number of instance for safe-wallet-web | `1` |
+| `image.repository` | safe-wallet-web  image name | `safeglobal/safe-wallet-web` |
+| `image.tag` | safe-wallet-web image tag | `latest` |
+| `image.pullPolicy` | Image pull policy | `Always` |
+| `extraEnv` | Specify additional environment variables | `[]` |
 
 ### Configuration parameters
 
 | Parameter | Description | Default |
 |---|---|---|
-| config.debug | Enable debug mode | true |
-| config.clientGateway.url | URL of the Client-Gateway | "" |
-| config.walletConnect.projectId | Wallet-Connect project ID | "" |
-| config.walletConnect.bridge | Wallet-Connect Bridge | "" |
+| `config.debug` | Enable debug mode | `true` |
+| `config.clientGateway.url` | URL of the Client-Gateway | `""` |
+| `config.walletConnect.projectId` | Wallet-Connect project ID | `""` |
+| `config.walletConnect.bridge` | Wallet-Connect Bridge | `""` |
 
 ### Pod parameters
 
 | Parameter | Description | Default |
 |---|---|---|
-| web.nodeSelector |  | {} |
-| web.affinity |  | {} |
-| web.tolerations |  | {} |
-| web.securityContext |  | {} |
-| web.podSecurityContext |  | {} |
-| web.resources |  | {} |
+| `web.nodeSelector` |  | `{}` |
+| `web.affinity` |  | `{}` |
+| `web.tolerations` |  | `{}` |
+| `web.securityContext` |  | `{}` |
+| `web.podSecurityContext` |  | `{}` |
+| `web.resources` |  | `{}` |
 
 ### Ingress parameters
 
 | Parameter | Description | Default |
 |---|---|---|
-| ingress.enabled | Enable ingress | true |
-| ingress.ingressClassName | Ingress class name | nginx |
-| ingress.host | Ingress host | cgw-service.minikube.net |
-| ingress.annotations | Ingress annotations | nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false" |
+| `ingress.enabled` | Enable ingress | `true` |
+| `ingress.ingressClassName` | Ingress class name | `nginx` |
+| `ingress.host` | Ingress host | `cgw-service.minikube.net` |
+| `ingress.annotations` | Ingress annotations | `nginx.ingress.kubernetes.io/force-ssl-redirect: "true"<br>nginx.ingress.kubernetes.io/enable-cors: "false"` |
 
 
 ## Troubleshooting

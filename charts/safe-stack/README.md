@@ -43,10 +43,10 @@ The command deploys safe-stack on the Kubernetes cluster in the default configur
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `[RELEASE-NAME]` deployment:
+To uninstall the `[RELEASE-NAME]` deployment:
 
 ```bash
-helm delete [RELEASE-NAME]
+helm uninstall [RELEASE-NAME]
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -74,15 +74,15 @@ helm show values safe/safe-stack
 
 | Parameter | Description | Default |
 |---|---|---|
-| nameOverride | Provide a name in place of safe-transaction-service for `app:` labels | "" |
-| fullnameOverride | Provide a name to substitute for the full names of resources | "" |
+| `nameOverride` | Provide a name in place of safe-transaction-service for `app:` labels | `""` |
+| `fullnameOverride` | Provide a name to substitute for the full names of resources | `""` |
 
 
 ### safe-transaction-service parameters
 
 | Parameter | Description | Default |
 |---|---|---|
-| safe-transaction-service.enabled | Spin up safe-transaction-service | true |
+| `safe-transaction-service.enabled` | Spin up safe-transaction-service | `true` |
 
 Refer to [safe-global/safe-transaction-service](../safe-transaction-service/) for configuration.
 
@@ -90,7 +90,7 @@ Refer to [safe-global/safe-transaction-service](../safe-transaction-service/) fo
 
 | Parameter | Description | Default |
 |---|---|---|
-| safe-config-service.enabled | Spin up safe-config-service | true |
+| `safe-config-service.enabled` | Spin up safe-config-service | `true` |
 
 Refer to [safe-global/safe-config-service](../safe-config-service/) for configuration.
 
@@ -98,7 +98,7 @@ Refer to [safe-global/safe-config-service](../safe-config-service/) for configur
 
 | Parameter | Description | Default |
 |---|---|---|
-| safe-client-gateway.enabled | Spin up safe-client-gateway  | true |
+| `safe-client-gateway.enabled` | Spin up safe-client-gateway  | `true` |
 
 Refer to [safe-global/safe-client-gateway](../safe-client-gateway/) for configuration.
 
@@ -106,7 +106,7 @@ Refer to [safe-global/safe-client-gateway](../safe-client-gateway/) for configur
 
 | Parameter | Description | Default |
 |---|---|---|
-| safe-wallet-web.enabled | Spin up safe-wallet-web  | true |
+| `safe-wallet-web.enabled` | Spin up safe-wallet-web  | `true` |
 
 Refer to [safe-global/safe-wallet-web](../safe-wallet-web/) for configuration.
 
