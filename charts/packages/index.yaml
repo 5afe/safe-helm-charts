@@ -3,7 +3,7 @@ entries:
   safe-client-gateway:
   - apiVersion: v2
     appVersion: v1.51.0
-    created: "2024-07-26T13:37:06.677903+02:00"
+    created: "2024-07-26T14:10:06.223617+02:00"
     dependencies:
     - alias: safe-client-gateway-redis
       condition: safe-client-gateway-redis.enabled
@@ -11,7 +11,7 @@ entries:
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 19.6.4
     description: A Helm chart to deploy safe-client-gateway
-    digest: 6188ecc438aaa3f239cea87dd2b1df6621b1c77299f4025fe4e02d0a4274ba7f
+    digest: 6b74299cd9c35123f3f4c2755a1ea55396205c5d6a0ca6c3cc6683cf5b33d36e
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -33,7 +33,7 @@ entries:
   safe-config-service:
   - apiVersion: v2
     appVersion: v2.83.0
-    created: "2024-07-26T13:37:06.681566+02:00"
+    created: "2024-07-26T14:10:06.226864+02:00"
     dependencies:
     - alias: safe-config-service-postgresql
       condition: safe-config-service-postgresql.enabled
@@ -41,7 +41,7 @@ entries:
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 14.3.3
     description: A Helm chart to deploy safe-config-service
-    digest: 65b2a5094c505ebcfb92249c43f141f7a07a87b0cdfe975b5a5c087aebca7edb
+    digest: 7293d8e379dfe9c755ef9fde3c4d386acbf1304f23103822017e3d77f5808c1c
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -63,7 +63,7 @@ entries:
   safe-stack:
   - apiVersion: v2
     appVersion: 2024-07-24_001
-    created: "2024-07-26T13:37:06.698206+02:00"
+    created: "2024-07-26T14:10:06.243702+02:00"
     dependencies:
     - condition: safe-transaction-service.enabled
       name: safe-transaction-service
@@ -83,7 +83,7 @@ entries:
       version: 0.1.0
     description: A Helm chart to deploy the full Safe{Stack} inclusing txs-service,
       cfg-service, cgw-service and wallet-web
-    digest: 27f94f001d6be099e8a939ab5858d4df9b77c5f78525362eecb03eecbf4b36ea
+    digest: af7b4e4bacf0d5dcfda295012aca26b451d7ef19aea0581973af2284779d09a1
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -105,7 +105,7 @@ entries:
   safe-transaction-service:
   - apiVersion: v2
     appVersion: v5.5.0
-    created: "2024-07-26T13:37:06.707534+02:00"
+    created: "2024-07-26T14:10:06.253289+02:00"
     dependencies:
     - alias: safe-transaction-service-postgresql
       condition: safe-transaction-service-postgresql.enabled
@@ -123,7 +123,7 @@ entries:
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 14.6.5
     description: A Helm chart to deploy safe-transaction-service
-    digest: f3391c9c77c8a1f873c4d48714b9c348b6182837d63f54abe2e9b5ff2da06adb
+    digest: bd9e891fae3adc567d6969483a0f3acdebceb7cfde4fd07f3e07d7216439ce72
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -145,9 +145,9 @@ entries:
   safe-wallet-web:
   - apiVersion: v2
     appVersion: v1.39.2
-    created: "2024-07-26T13:37:06.707989+02:00"
+    created: "2024-07-26T14:10:06.253529+02:00"
     description: A Helm chart to deploy safe-wallet-web
-    digest: 8ca7d40cdbd9fd228ce8f3d15150257bfe09d705f70414cd4eb246a4ff9fe601
+    digest: 5154fc114d0acbfdabe9a6ec58754135159a1eec17dc00730f671d0f9033a2a9
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -166,4 +166,4 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-26T13:37:06.672269+02:00"
+generated: "2024-07-26T14:10:06.218295+02:00"
