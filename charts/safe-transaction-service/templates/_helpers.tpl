@@ -50,3 +50,38 @@ app.kubernetes.io/name: {{ include "safe-transaction-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Create a default fully qualified app name for postgresql
+*/}}
+{{- define "safe-transaction-service.postgresql.fullname" -}}
+{{- if index .Values "safe-transaction-service-postgresql" "fullnameOverride" }}
+{{- index .Values "safe-transaction-service-postgresql" "fullnameOverride" | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $suffix := "safe-transaction-service-postgresql" }}
+{{- printf "%s-%s" .Release.Name $suffix | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create a default fully qualified app name for redis
+*/}}
+{{- define "safe-transaction-service.redis.fullname" -}}
+{{- if index .Values "safe-transaction-service-redis" "fullnameOverride" }}
+{{- index .Values "safe-transaction-service-redis" "fullnameOverride" | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $suffix := "safe-transaction-service-redis" }}
+{{- printf "%s-%s" .Release.Name $suffix | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create a default fully qualified app name for rabbitmq
+*/}}
+{{- define "safe-transaction-service.rabbitmq.fullname" -}}
+{{- if index .Values "safe-transaction-service-rabbitmq" "fullnameOverride" }}
+{{- index .Values "safe-transaction-service-rabbitmq" "fullnameOverride"  | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $suffix := "safe-transaction-service-rabbitmq" }}
+{{- printf "%s-%s" .Release.Name $suffix | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}

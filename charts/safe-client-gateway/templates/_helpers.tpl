@@ -50,3 +50,14 @@ app.kubernetes.io/name: {{ include "safe-client-gateway.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Create a default fully qualified app name for redis
+*/}}
+{{- define "safe-client-gateway.redis.fullname" -}}
+{{- if index .Values "safe-client-gateway-redis" "fullnameOverride" }}
+{{- index .Values "safe-client-gateway-redis" "fullnameOverride" | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $suffix := "safe-client-gateway-redis" }}
+{{- printf "%s-%s" .Release.Name $suffix | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}

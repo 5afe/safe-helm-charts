@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: {{ include "safe-transaction-service.fullname" . }}-ganache-node-ingress
+  name: {{ include "safe-transaction-service.fullname" . }}-ganache-node
 
   annotations: 
     {{- range $k, $v := .Values.ganacheNode.ingress.annotations }}

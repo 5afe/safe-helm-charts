@@ -25,29 +25,25 @@ extraEnv: []
 
 config:
   debug: true
-  secretKey: "insecure_key_for_dev"  # change me
+  secretKey: "insecure_key_for_dev" # change me
   csrf:
     trustedOrigins: "https://safe-wallet.minikube.net"
   clientGateway:
-    url: "http://safe-client-gateway-web.default.svc.cluster.local"
+    url: "http://cgw-service-safe-client-gateway-web.default.svc.cluster.local"
     token: "1234567890"  # change me (should be the same as client-gateway.auth.token)
   database:
     runMigration: true
-    useExisting: false
-    password: postgres
-    user: postgres
-    db: cfg
-    host: # leave empty unless useExisting=true e.g plsql://
-    port: 5432
-    persistence:
-      storageClass: standard
-      size: 100Mi
+    host: # leave empty if postgresql.enabled=true
+    port: # leave empty if postgresql.enabled=true
+    password: # leave empty if postgresql.enabled=true
+    user: # leave empty if postgresql.enabled=true
+    db: # leave empty if postgresql.enabled=true
   admin:
     auth:
       enabled: true
-      username: root
-      password: root123
-      email: root@example.com
+      username: root          # changeme
+      password: root123       # changeme
+      email: root@example.com # changeme
 
 web:
   nodeSelector: {}
@@ -70,3 +66,17 @@ ingress:
   annotations: 
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/enable-cors: "false"
+
+safe-config-service-postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        username: safe
+        password: changeme
+        database: cfg
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "standard"
+      size: 100Mi

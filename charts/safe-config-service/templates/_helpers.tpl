@@ -50,3 +50,14 @@ app.kubernetes.io/name: {{ include "safe-config-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Create a default fully qualified app name for postgresql
+*/}}
+{{- define "safe-config-service.postgresql.fullname" -}}
+{{- if index .Values "safe-config-service-postgresql" "fullnameOverride" }}
+{{- index .Values "safe-config-service-postgresql" "fullnameOverride" | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $suffix := "safe-config-service-postgresql" }}
+{{- printf "%s-%s" .Release.Name $suffix | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}

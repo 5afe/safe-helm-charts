@@ -17,3 +17,9 @@ sources:
 maintainers:
   - name: gjeanmart
     email: greg@safe.global
+dependencies:
+  - name: redis
+    version: 19.6.4
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: safe-client-gateway-redis.enabled
+    alias: safe-client-gateway-redis

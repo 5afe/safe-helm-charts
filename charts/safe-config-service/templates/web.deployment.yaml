@@ -23,7 +23,7 @@ spec:
           command:
             - /bin/bash
             - -c
-            - python src/manage.py migrate --no-input || true
+            - python src/manage.py migrate --no-input
           envFrom:
             - configMapRef:
                 name: {{ include "safe-config-service.fullname" . }}-env

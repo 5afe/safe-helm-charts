@@ -17,7 +17,7 @@ spec:
         app: {{ include "safe-transaction-service.fullname" . }}-ganache-node
     spec:
       containers:
-        - name: {{ include "safe-transaction-service.fullname" . }}-ganache-node
+        - name: ganache-node
           image: gjeanmart/safe-ganache-node:latest
           ports:
             - name: node-rpc

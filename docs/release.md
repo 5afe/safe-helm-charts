@@ -1,10 +1,17 @@
 ## Release
 
 ```
-
+helm dependency build charts/safe-transaction-service/
 helm package charts/safe-transaction-service -d charts/packages
+
+
+helm dependency build charts/safe-config-service/
 helm package charts/safe-config-service -d charts/packages
+
+
+helm dependency build charts/safe-client-gateway/
 helm package charts/safe-client-gateway -d charts/packages
+
 helm package charts/safe-wallet-web -d charts/packages
 
 helm dependency build charts/safe-stack/

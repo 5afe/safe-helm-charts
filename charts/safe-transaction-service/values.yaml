@@ -32,24 +32,12 @@ config:
     url: # leave empty if you use ganache
     useGanacheNode: true
   database:
+    url: # leave empty if postgresql.enabled=true (e.g plsql://user:pw@host:port/db)
     runMigration: true
-    useExisting: false
-    url: # leave empty unless useExisting=true e.g plsql://
-    port: 5432
-    user: postgres
-    password: postgres
-    db: txs
-    persistence:
-      storageClass: standard
-      size: 100Mi
   redis: 
-    useExisting: false
-    url: # leave empty unless useExisting=true e.g redis://
+    url: # leave empty if redis.enabled=true e.g redis://
   rabbitmq: 
-    useExisting: false
-    url: # leave empty unless useExisting=true e.g amqp://
-    user: guest
-    password: guest
+    url: # leave empty if rabbitmq.enabled=true e.g amqp://
   admin:
     auth:
       enabled: true
@@ -124,3 +112,38 @@ ganacheNode:
     host: node.minikube.net
     annotations: {}
 
+safe-transaction-service-postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        username: safe
+        password: changeme
+        database: txs
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "standard"
+      size: 100Mi
+
+safe-transaction-service-redis:
+  enabled: true
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      storageClass: "standard"
+      size: 100Mi
+  replica:
+    replicaCount: 0
+
+safe-transaction-service-rabbitmq:
+  enabled: true
+  auth:
+    username: guest
+    password: guest
+  persistence:
+    enabled: true
+    storageClass: "standard"
+    size: 100Mi

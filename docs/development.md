@@ -33,9 +33,31 @@ minikube addons enable ingress
 ```
 
 
-#### Install the Chart
+#### Install the Chart independantly
 
 ```bash
+helm dependency build charts/safe-transaction-service/
+helm install txs-service ./charts/safe-transaction-service
+
+helm dependency build charts/safe-config-service
+helm install cfg-service ./charts/safe-config-service
+
+helm dependency build charts/safe-client-gateway
+helm install cgw-service ./charts/safe-client-gateway
+
+helm install wallet-web ./charts/safe-wallet-web
+```
+
+
+```bash
+helm uninstall txs-service cfg-service cgw-service wallet-web
+```
+
+
+#### Install the Chart (safe-stack batch)
+
+```bash
+helm dependency build charts/safe-stack
 helm install safe-stack ./charts/safe-stack
 
 kubectl get pods
@@ -52,5 +74,11 @@ safe-stack-safe-transaction-service-scheduler-7bf779f696-tj8xv    1/1     Runnin
 safe-stack-safe-transaction-service-web-6c68869558-h224w          2/2     Running   0          75s
 safe-stack-safe-transaction-service-worker-6654b65bf7-mmbtt       1/1     Running   0          74s
 safe-stack-safe-wallet-web-8b58b7957-x5c8x                        1/1     Running   0          75s
+```
 
+
+
+
+```bash
+helm uninstall safe-stack
 ```

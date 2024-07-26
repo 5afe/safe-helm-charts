@@ -17,3 +17,19 @@ sources:
 maintainers:
   - name: gjeanmart
     email: greg@safe.global
+dependencies:
+  - name: postgresql
+    version: 14.3.3
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: safe-transaction-service-postgresql.enabled
+    alias: safe-transaction-service-postgresql
+  - name: redis
+    version: 19.6.4
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: safe-transaction-service-redis.enabled
+    alias: safe-transaction-service-redis
+  - name: rabbitmq
+    version: 14.6.5
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: safe-transaction-service-rabbitmq.enabled
+    alias: safe-transaction-service-rabbitmq
