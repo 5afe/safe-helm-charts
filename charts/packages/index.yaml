@@ -3,7 +3,7 @@ entries:
   safe-client-gateway:
   - apiVersion: v2
     appVersion: v1.51.0
-    created: "2024-07-26T12:53:07.677141+02:00"
+    created: "2024-07-26T13:37:06.677903+02:00"
     dependencies:
     - alias: safe-client-gateway-redis
       condition: safe-client-gateway-redis.enabled
@@ -33,7 +33,7 @@ entries:
   safe-config-service:
   - apiVersion: v2
     appVersion: v2.83.0
-    created: "2024-07-26T12:53:07.68039+02:00"
+    created: "2024-07-26T13:37:06.681566+02:00"
     dependencies:
     - alias: safe-config-service-postgresql
       condition: safe-config-service-postgresql.enabled
@@ -63,7 +63,7 @@ entries:
   safe-stack:
   - apiVersion: v2
     appVersion: 2024-07-24_001
-    created: "2024-07-26T12:53:07.69716+02:00"
+    created: "2024-07-26T13:37:06.698206+02:00"
     dependencies:
     - condition: safe-transaction-service.enabled
       name: safe-transaction-service
@@ -83,7 +83,7 @@ entries:
       version: 0.1.0
     description: A Helm chart to deploy the full Safe{Stack} inclusing txs-service,
       cfg-service, cgw-service and wallet-web
-    digest: 073d815720d48e7e04bcf60a8e1fe8d7af58bdff44ea17d8314509c53d01878b
+    digest: 27f94f001d6be099e8a939ab5858d4df9b77c5f78525362eecb03eecbf4b36ea
     home: https://safe.global
     icon: https://safe-global.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F640c7ac9-75c9-4d75-875d-56057030fb71%2FSAFE_token_logo.png?table=block&id=7d9ad728-dd7e-4623-9149-d2afc766b4f0&spaceId=5010e4ee-a4be-4f75-a21f-79bde3054f7f&width=260&userId=&cache=v2
     keywords:
@@ -105,7 +105,7 @@ entries:
   safe-transaction-service:
   - apiVersion: v2
     appVersion: v5.5.0
-    created: "2024-07-26T12:53:07.706064+02:00"
+    created: "2024-07-26T13:37:06.707534+02:00"
     dependencies:
     - alias: safe-transaction-service-postgresql
       condition: safe-transaction-service-postgresql.enabled
@@ -145,7 +145,7 @@ entries:
   safe-wallet-web:
   - apiVersion: v2
     appVersion: v1.39.2
-    created: "2024-07-26T12:53:07.706273+02:00"
+    created: "2024-07-26T13:37:06.707989+02:00"
     description: A Helm chart to deploy safe-wallet-web
     digest: 8ca7d40cdbd9fd228ce8f3d15150257bfe09d705f70414cd4eb246a4ff9fe601
     home: https://safe.global
@@ -166,4 +166,4 @@ entries:
     urls:
     - https://5afe.github.io/safe-helm-charts/charts/packages/safe-wallet-web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-26T12:53:07.671947+02:00"
+generated: "2024-07-26T13:37:06.672269+02:00"

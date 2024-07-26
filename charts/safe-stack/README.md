@@ -70,12 +70,46 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 helm show values safe/safe-stack
 ```
 
+### Common parameters
 
-| Parameter                                                  | Description                                                                                         | Default                    |
-|------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------|
-| nameOverride                                | Provide a name in place of safe-stack for `app:` labels | ""                                                                                                               |
-| fullnameOverride                            | Provide a name to substitute for the full names of resources          | ""                                                                                                               |
-| imagePullSecrets                            | Reference to one or more secrets to be used when pulling images       | ""                                                                                                               |
+| Parameter | Description | Default |
+|---|---|---|
+| nameOverride | Provide a name in place of safe-transaction-service for `app:` labels | "" |
+| fullnameOverride | Provide a name to substitute for the full names of resources | "" |
+
+
+### safe-transaction-service parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| safe-transaction-service.enabled | Spin up safe-transaction-service | true |
+
+Refer to [safe-global/safe-transaction-service](../safe-transaction-service/) for configuration.
+
+### safe-config-service parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| safe-config-service.enabled | Spin up safe-config-service | true |
+
+Refer to [safe-global/safe-config-service](../safe-config-service/) for configuration.
+
+### safe-client-gateway parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| safe-client-gateway .enabled | Spin up safe-client-gateway  | true |
+
+Refer to [safe-global/safe-client-gateway ](../safe-client-gateway /) for configuration.
+
+### safe-wallet-web parameters
+
+| Parameter | Description | Default |
+|---|---|---|
+| safe-wallet-web .enabled | Spin up safe-wallet-web  | true |
+
+Refer to [safe-global/safe-wallet-web ](../safe-wallet-web /) for configuration.
+
 
 
 ## Troubleshooting
