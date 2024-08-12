@@ -96,11 +96,20 @@ safe-transaction-service:
     annotations: 
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/enable-cors: "false"
+    tls:
+      enabled: false
+      #host: 
+      #secretName:
   ganacheNode:
     enabled: true
+    image:
+      repository: gjeanmart/safe-ganache-node
+      tag: latest
+      pullPolicy: Always
     config:
       mnemonic: "test test test test test test test test test test test junk"
       chainId: 1337
+      deterministicDeployment: "true"
       persistence:
         storageClass: standard
         size: 100Mi
@@ -109,6 +118,10 @@ safe-transaction-service:
       ingressClassName: nginx
       host: node.minikube.net
       annotations: {}
+      tls:
+        enabled: false
+        #host: 
+        #secretName:
   safe-transaction-service-postgresql:
     enabled: true
     global:
@@ -197,6 +210,10 @@ safe-config-service:
     annotations: 
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/enable-cors: "false"
+    tls:
+      enabled: false
+      #host: 
+      #secretName:
   safe-config-service-postgresql:
     enabled: true
     global:
@@ -221,7 +238,7 @@ safe-client-gateway:
   replicaCount: 1
   image:
     repository: safeglobal/safe-client-gateway-nest
-    tag: latest
+    tag: v1.51.0 #latest
     pullPolicy: Always
   extraEnv: []
   config:
@@ -256,6 +273,10 @@ safe-client-gateway:
       nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"
       nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"
       nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"
+    tls:
+      enabled: false
+      #host: 
+      #secretName:
   safe-client-gateway-redis:
     enabled: true
     auth:
@@ -294,3 +315,7 @@ safe-wallet-web:
     annotations:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/enable-cors: "false"
+    tls:
+      enabled: false
+      #host: 
+      #secretName:

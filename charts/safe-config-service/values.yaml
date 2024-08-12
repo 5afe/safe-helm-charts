@@ -33,11 +33,11 @@ config:
     token: "1234567890"  # change me (should be the same as client-gateway.auth.token)
   database:
     runMigration: true
-    host: # leave empty if postgresql.enabled=true
-    port: # leave empty if postgresql.enabled=true
-    password: # leave empty if postgresql.enabled=true
-    user: # leave empty if postgresql.enabled=true
-    db: # leave empty if postgresql.enabled=true
+    host: # leave empty if safe-config-service-postgresql.enabled=true
+    port: # leave empty if safe-config-service-postgresql.enabled=true
+    password: # leave empty if safe-config-service-postgresql.enabled=true
+    user: # leave empty if safe-config-service-postgresql.enabled=true
+    db: # leave empty if safe-config-service-postgresql.enabled=true
   admin:
     auth:
       enabled: true
@@ -66,6 +66,10 @@ ingress:
   annotations: 
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/enable-cors: "false"
+  tls:
+    enabled: false
+    #host: 
+    #secretName:
 
 safe-config-service-postgresql:
   enabled: true

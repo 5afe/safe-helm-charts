@@ -6,11 +6,11 @@
 
 ```bash
 brew install minikube
-minikube start
+minikube start --listen-address='0.0.0.0'
 minikube addons enable ingress
 ```
 
-#### Configure TLS for your Ingresses
+#### Configure TLS (self-signed) for your Ingresses
 
 ```bash
 brew install mkcert
@@ -28,8 +28,21 @@ vi /etc/hosts
 127.0.0.1 node.minikube.net
 
 minikube addons configure ingress
+Enter kube-system/mkcert   
+
 minikube addons disable ingress
 minikube addons enable ingress
+```
+
+
+#### Configure TLS (with authority) for your Ingresses
+
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.crds.yaml
+helm repo add jetstack https://charts.jetstack.io && helm repo update
+helm install cert-manager jetstack/cert-manager --namespace kube-system --version v1.13.3
+kubectl apply -f my-cluster_issuer.yml
+kubectl apply -f my-certificate.yml
 ```
 
 

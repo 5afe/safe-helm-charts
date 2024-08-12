@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
         - name: ganache-node
-          image: gjeanmart/safe-ganache-node:latest
+          image: "{{ .Values.ganacheNode.image.repository }}:{{ .Values.ganacheNode.image.tag }}"
+          imagePullPolicy: {{ .Values.ganacheNode.image.pullPolicy }}
           ports:
             - name: node-rpc
               containerPort: 8545
@@ -27,6 +28,8 @@ spec:
               value: "{{ .Values.ganacheNode.config.mnemonic }}"
             - name: CHAIN_ID
               value: "{{ .Values.ganacheNode.config.chainId }}"
+            - name: DETERMINISTIC_DEPLOYMENT
+              value: "{{ .Values.ganacheNode.config.deterministicDeployment }}"
           volumeMounts:
             - name: ganache-node-claim
               mountPath: /db

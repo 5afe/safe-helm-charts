@@ -90,15 +90,24 @@ ingress:
   annotations: 
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/enable-cors: "false"
+  tls:
+    enabled: false
+    #host: 
+    #secretName:
 
 ##
 ## Ganache (test) node configuration
 ##
 ganacheNode:
   enabled: true
+  image:
+    repository: gjeanmart/safe-ganache-node
+    tag: latest
+    pullPolicy: Always
   config:
     mnemonic: "test test test test test test test test test test test junk"
     chainId: 1337
+    deterministicDeployment: "true"
     persistence:
       storageClass: standard
       size: 100Mi
@@ -107,6 +116,10 @@ ganacheNode:
     ingressClassName: nginx
     host: node.minikube.net
     annotations: {}
+    tls:
+      enabled: false
+      #host: 
+      #secretName:
 
 safe-transaction-service-postgresql:
   enabled: true

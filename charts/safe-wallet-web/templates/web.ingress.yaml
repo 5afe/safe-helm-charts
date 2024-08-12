@@ -15,9 +15,14 @@ metadata:
 spec:
   # notice: ref: https://kubernetes.github.io/ingress-nginx/user-guide/multiple-ingress/
   ingressClassName: {{ .Values.ingress.ingressClassName }}
-
+  {{- if .Values.ingress.tls.enabled }}
+  tls:
+    - hosts:
+        - "{{ .Values.ingress.tls.host }}"
+      secretName: {{ .Values.ingress.tls.secretName }}
+  {{- end }}
   rules:
-    - host: {{ .Values.ingress.host }}
+    - host: "{{ .Values.ingress.host }}"
       http:
         paths:
           - path: /

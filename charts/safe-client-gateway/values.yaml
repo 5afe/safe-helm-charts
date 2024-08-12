@@ -30,7 +30,7 @@ config:
   security:
     authToken: "1234567890"
   redis: 
-    host: # leave empty unless useExisting=true
+    host: # leave empty unless safe-client-gateway-redis.enabled=true
     port: 6379
 
 web:
@@ -57,6 +57,10 @@ ingress:
     nginx.ingress.kubernetes.io/cors-allow-methods: "OPTIONS, GET, HEAD, DELETE, PUT, POST"
     nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.minikube.net"
     nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Safe-Wallet-Signature,Safe-Wallet-Signature-Timestamp"
+  tls:
+    enabled: false
+    #host: 
+    #secretName:
 
 safe-client-gateway-redis:
   enabled: true
