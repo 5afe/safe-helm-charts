@@ -146,6 +146,7 @@ helm show values safe/safe-transaction-service
 | `ganacheNode.enabled` | Enable a Ganache (testing) node | `true` |
 | `ganacheNode.config.mnemonic` | Ganache mnemonic used to deploy Safe contracts | `"test test test test test test test test test test test junk"` |
 | `ganacheNode.config.chainId` | Ganache Chain ID | `1337` |
+| `ganacheNode.config.deterministicDeployment` | Use deterministic deployment (if `safe-singleton-factory` available) | `true` |
 | `ganacheNode.config.persistence.storageClass` | Ganache persistence class | `standard` |
 | `ganacheNode.config.persistence.size` | Ganache persistence size | `100Mi` |
 | `ganacheNode.ingress.enabled` | Enable ingress to expose the node | `true` |
