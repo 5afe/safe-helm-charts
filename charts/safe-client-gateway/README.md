@@ -54,7 +54,7 @@ The command removes all the Kubernetes components associated with the chart and 
 To upgrade the `[RELEASE-NAME]` deployment with the latest version:
 
 ```bash
-helm upgrade [RELEASE_NAME] safe/safe-client-gateway
+helm upgrade [RELEASE-NAME] safe/safe-client-gateway
 ```
 
 ## Configuration
