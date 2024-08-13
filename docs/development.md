@@ -10,7 +10,9 @@ minikube start --listen-address='0.0.0.0'
 minikube addons enable ingress
 ```
 
-#### Configure TLS (self-signed) for your Ingresses
+#### Configure TLS for your Ingresses
+
+##### Option 1: self-signed certificate
 
 ```bash
 brew install mkcert
@@ -34,8 +36,7 @@ minikube addons disable ingress
 minikube addons enable ingress
 ```
 
-
-#### Configure TLS (with authority) for your Ingresses
+##### Option 2: with a certificate autheority (e.g LetsEncrypt)
 
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.crds.yaml
@@ -46,7 +47,9 @@ kubectl apply -f my-certificate.yml
 ```
 
 
-#### Install the Chart independantly
+#### Deployment
+
+##### Install the Chart independantly
 
 ```bash
 helm dependency build charts/safe-transaction-service/
@@ -67,7 +70,7 @@ helm uninstall txs-service cfg-service cgw-service wallet-web
 ```
 
 
-#### Install the Chart (safe-stack batch)
+##### Install the Chart (safe-stack batch)
 
 ```bash
 helm dependency build charts/safe-stack
@@ -88,8 +91,6 @@ safe-stack-safe-transaction-service-web-6c68869558-h224w          2/2     Runnin
 safe-stack-safe-transaction-service-worker-6654b65bf7-mmbtt       1/1     Running   0          74s
 safe-stack-safe-wallet-web-8b58b7957-x5c8x                        1/1     Running   0          75s
 ```
-
-
 
 
 ```bash

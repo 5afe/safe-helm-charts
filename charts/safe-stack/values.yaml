@@ -238,7 +238,7 @@ safe-client-gateway:
   replicaCount: 1
   image:
     repository: safeglobal/safe-client-gateway-nest
-    tag: v1.51.0 #latest
+    tag: latest
     pullPolicy: Always
   extraEnv: []
   config:
